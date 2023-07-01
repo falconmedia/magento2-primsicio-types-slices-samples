@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="category_content"
+               class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/category-content.phtml"
+        >
+            <arguments>
+                <argument name="reference" xsi:type="string">primary</argument>
+            </arguments>
+
+            <block class="Elgentos\PrismicIO\Block\Document" name="category.content" template="category_link">
+                <block class="Elgentos\PrismicIO\Block\Template"  template="Elgentos_PrismicIO::elements/category-content.phtml">
+                    <arguments>
+                        <argument name="reference" xsi:type="string">data</argument>
+                    </arguments>
+
+                    <block class="Elgentos\PrismicIO\Block\Dom\Link" template="url" as="url"/>
+
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title" as="title"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category_image.url" as="image"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="description.0.text" as="description"/>
+                </block>
+            </block>
+
+        </block>
+    </body>
+</page>

@@ -1,0 +1,10 @@
+<?php
+/** @var \Elgentos\PrismicIO\Block\Template $block */
+
+$type = $block->getChildHtml('type');
+$class = ($escaper->escapeHtml($type) === "hero" ? 'hero--secondary' : 'hero--advanced');
+
+?>
+<div class="hero width-full <?= $escaper->escapeHtml($class); ?>">
+    <?=/* @noEscape */ $block->getChildHtml($type); ?>
+</div>

@@ -1,0 +1,53 @@
+<?php
+
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Elgentos\PrismicIO\Block\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+$additionFilters = $block->getChildHtml('additional_filters');
+$background      = $block->getChildHtml('background_color');
+
+?>
+
+<section class="bg-<?= $escaper->escapeHtml($background); ?> py-m sm-py-s">
+    <div class="container">
+        <div class="mx-auto px-4">
+            <div class="mx-auto py-8">
+
+                <?php if ($additionFilters === 'new') :?>
+                    <?=/* @noEscape */ $block->getLayout()
+                        ->createBlock('Magento\Cms\Block\Block')
+                        ->setBlockId('prismicio_product_collection_new')
+                        ->toHtml();
+                    ?>
+                <?php endif; ?>
+                <?php if ($additionFilters === 'featured') :?>
+                    <?=/* @noEscape */ $block->getLayout()
+                        ->createBlock('Magento\Cms\Block\Block')
+                        ->setBlockId('prismicio_product_collection_featured')
+                        ->toHtml();
+                    ?>
+                <?php endif; ?>
+                <?php if ($additionFilters === 'bestsellers') :?>
+                    <?=/* @noEscape */ $block->getLayout()
+                        ->createBlock('Magento\Cms\Block\Block')
+                        ->setBlockId('prismicio_product_collection_bestsellers')
+                        ->toHtml();
+                    ?>
+                <?php endif; ?>
+                <?php if ($additionFilters === 'sales') :?>
+                    <?=/* @noEscape */ $block->getLayout()
+                        ->createBlock('Magento\Cms\Block\Block')
+                        ->setBlockId('prismicio_product_collection_sales')
+                        ->toHtml();
+                    ?>
+                <?php endif; ?>
+
+            </div>
+        </div>
+    </div>
+</section>

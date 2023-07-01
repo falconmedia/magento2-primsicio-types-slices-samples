@@ -1,0 +1,159 @@
+<?php
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$color      = $escaper->escapeHtml($block->getChildHtml('color'));
+$align      = $escaper->escapeHtml($block->getChildHtml('text_align'));
+$title      = $escaper->escapeHtml($block->getChildHtml('title'));
+$subtitle   = $escaper->escapeHtml($block->getChildHtml('description'));
+$label      = $escaper->escapeHtml($block->getChildHtml('label'));
+$link       = $escaper->escapeUrl($block->getChildHtml('url'));
+$image      = $escaper->escapeUrl($block->getChildHtml('image'));
+$url1       = $block->getChildHtml('url_1');
+$url2       = $block->getChildHtml('url_2');
+$url3       = $block->getChildHtml('url_3');
+$title1     = $escaper->escapeHtml($block->getChildHtml('title_1'));
+$title2     = $escaper->escapeHtml($block->getChildHtml('title_2'));
+$title3     = $escaper->escapeHtml($block->getChildHtml('title_3'));
+$label1     = $escaper->escapeHtml($block->getChildHtml('title_1'));
+$label2     = $escaper->escapeHtml($block->getChildHtml('title_2'));
+$label3     = $escaper->escapeHtml($block->getChildHtml('title_3'));
+$image1     = $escaper->escapeUrl($block->getChildHtml('image_1'));
+$image2     = $escaper->escapeUrl($block->getChildHtml('image_2'));
+$image3     = $escaper->escapeUrl($block->getChildHtml('image_3'));
+?>
+
+<div class="flex md-flex-row xs-flex-column m-0 justify-between column-gap-1 row-gap-1">
+
+    <div class="hero hero--secondary">
+        <div class="hero__wrapper no-shadow">
+            <div class="hero__text mx-l">
+                <h1 class="hero__text--heading--first color-<?= $color; ?> text-<?= $align; ?>">
+                    <?= $title; ?>
+                </h1>
+                <h3 class="color-<?= $color; ?> text-shadow"><?= $subtitle ?></h3>
+                <a href="<?= $link; ?>"
+                   class="button button--icon pl-l bg-green none-text-transform"
+                   title="<?= $label; ?>"
+                >
+                    <?= $label; ?>
+                    <svg class="icon fill-<?= $color; ?> button__icon" role="img">
+                        <title><?= $escaper->escapeHtml(__('angle-right')); ?></title>
+                        <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg')); ?>#angle-right"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero__background">
+            <picture class="image">
+                <img src="<?= $image; ?>"
+                     alt="<?= $title; ?>"
+                     class="m-0 p-0 rounded-1 box-shadow"
+                />
+            </picture>
+        </div>
+    </div>
+
+
+    <div class="flex flex-col hero--advanced__cols row-gap-05">
+        <div class="flex flex-row items-center bg-white px-4 rounded-1 box-shadow justify-between">
+            <div class="m-0 width-full">
+                <div class="flex flex-col m-0">
+                    <a href="<?= $url1; ?>"
+                       title="<?= $title1; ?>"
+                    >
+                        <h3><?= $title1; ?></h3>
+                    </a>
+                    <a href="<?= $url1; ?>"
+                       title="<?= $title1; ?>">
+                        <p><?= $label1; ?></p>
+                    </a>
+                </div>
+            </div>
+            <div style="width:245px!important;height: 150px;">
+                <a href="<?= $url1; ?>"
+                   title="<?= $title1; ?>">
+                    <picture class="image">
+                        <img src="<?= $image1; ?>"
+                             alt="<?= $title1; ?>"
+                             class="m-0 p-0 "
+                             style="width: 150px!important"
+                             width="150"
+                             height="150"
+                        />
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-row items-center bg-white px-4 rounded-1 box-shadow justify-between">
+            <div class="m-0 width-full">
+                <div class="flex flex-col">
+                    <a href="<?= $url2; ?>"
+                       title="<?= $title2; ?>"
+                    >
+                        <h3><?= $title2; ?></h3>
+                    </a>
+                    <a href="<?= $url2; ?>"
+                       title="<?= $title2; ?>"
+                    >
+                        <p><?= $label2; ?></p>
+                    </a>
+                </div>
+            </div>
+            <div style="width:245px!important;height: 150px;">
+                <a href="<?= $url2; ?>"
+                   title="<?= $title2; ?>"
+                >
+                    <picture class="image">
+                        <img src="<?= $image2; ?>"
+                             alt="<?= $title2; ?>"
+                             class="m-0 p-0"
+                             style="width: 150px!important"
+                             width="150"
+                             height="150"
+                        />
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-row items-center bg-white px-4 rounded-1 box-shadow justify-between">
+            <div class="m-0 width-full">
+                <div class="flex flex-col m-0">
+                    <a href="<?= $url3; ?>"
+                       title="<?= $title3; ?>"
+                    >
+                        <h3><?= $title3; ?></h3>
+                    </a>
+                    <a href="<?= $url3; ?>"
+                       title="<?= $title3; ?>"
+                    >
+                        <p><?= $label3; ?></p>
+                    </a>
+                </div>
+            </div>
+            <div style="width:245px!important;height: 150px;">
+                <a href="<?= $url3; ?>"
+                   title="<?= $title3; ?>">
+                    <picture class="image">
+                        <img src="<?= $image3; ?>"
+                             alt="<?= $title3; ?>"
+                             class="m-0 p-0"
+                             style="width: 150px!important"
+                             width="150"
+                             height="150"
+                        />
+                    </picture>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

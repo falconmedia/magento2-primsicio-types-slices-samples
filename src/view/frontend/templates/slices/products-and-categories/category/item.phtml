@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$gridColumn      = $escaper->escapeHtml('col-md-' . $block->getChildHtml('grid'));
+$backgroundColor = $escaper->escapeHtml($block->getChildHtml('background'));
+
+$itemUrl         = $escaper->escapeUrl($block->getChildHtml('url'));
+$itemTitle       = $escaper->escapeHtml($block->getChildHtml('title'));
+$itemImage       = $escaper->escapeUrl($block->getChildHtml('image'));
+$itemDescription = $escaper->escapeHtml($block->getChildHtml('description'));
+$buttonText      = $escaper->escapeHtml($block->getChildHtml('button'));
+?>
+
+<?php if ($itemImage): ?>
+    <div class="flex">
+        <a href="<?= $itemUrl; ?>"
+           title="<?= $itemTitle; ?>"
+           class="h-full items-end justify-end flex"
+        >
+            <img class="image lazy load"
+                 src="<?= $itemImage; ?>" alt="<?= $itemTitle; ?>" loading="lazy" />
+        </a>
+    </div>
+<?php endif; ?>
+
+<div class="flex flex-col justify-center mx-4">
+    <h3 class="text-white">
+        <a href="<?= $itemUrl; ?>"
+           title="<?= $itemTitle; ?>"
+           class="link link-white">
+            <?= $itemTitle; ?>
+        </a>
+    </h3>
+    <p class="text-white font-saira mb-4 mr-4">
+        <?= $itemDescription; ?>
+    </p>
+    <div class="flex">
+        <a href="<?= $itemUrl; ?>"
+           class="w-full btn btn-primary items-center justify-center text-sm">
+            <span class="mr-4"><?= $buttonText; ?></span>
+            <svg class="icon fill-<?= $color; ?> button__icon" role="img">
+                <title><?= $escaper->escapeHtml(__('angle-right')); ?></title>
+                <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg')); ?>#angle-right"></use>
+            </svg>
+        </a>
+    </div>
+</div>

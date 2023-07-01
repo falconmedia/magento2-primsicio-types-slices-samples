@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="usps_horizontal"
+               class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/usps/wrapper.phtml"
+        >
+<!--            <arguments>-->
+<!--                <argument name="reference" xsi:type="string">primary</argument>-->
+<!--            </arguments>-->
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="full_width" as="full_width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="background_color" as="background"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::modules/usps/item.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="usp_title" as="title"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="usp_subtitle" as="subtitle"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="usp_icon" as="icon"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="text_color" as="text_color"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="icon_color" as="fill_color"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="icon_size" as="size"/>
+                </block>
+
+            </block>
+
+        </block>
+    </body>
+</page>

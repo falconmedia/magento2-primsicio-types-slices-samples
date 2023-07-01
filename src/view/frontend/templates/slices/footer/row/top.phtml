@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+$dummy = $block->getContext();
+//var_dump($block->getContext());die; // show only output
+highlight_string(print_r($dummy, true)); // show inline on page
+?>
+
+<?= /** @noEscape */ $block->getChildHtml('prismicio.footer_row.top') ?>
+

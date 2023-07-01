@@ -1,0 +1,22 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$sliderId = $escaper->escapeHtml(uniqid());
+$width    = str_replace('/12', '', $block->getChildHtml('width'));
+$bg       = $block->getChildHtml('background_color');
+?>
+
+<section class="footer__menu col-xs-12 col-md-<?= $width; ?> xs-mb-l">
+    <div class="dropdown-list dropdown-list--with-breakpoint bg-<?= ($bg ?: 'transparent'); ?>">
+        <ul class="dropdown-list__list flex xs-flex-col md-flex-row justify-between">
+            <?=/* @noEscape */  $block->getChildHtml('items') ?>
+        </ul>
+    </div>
+</section>

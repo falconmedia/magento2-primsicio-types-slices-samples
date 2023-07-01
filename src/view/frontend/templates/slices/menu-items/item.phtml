@@ -1,0 +1,19 @@
+<?php
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+$menuUrl    = $escaper->escapeUrl($block->getChildHtml('menu_url'));
+$menuLabel  = $escaper->escapeHtml($block->getChildHtml('menu_label'));
+
+?>
+
+<li class="list__item sidebar-nav__item ">
+    <a href="<?= $menuUrl ?>" title="<?= $menuLabel ?>">
+        <?= $menuLabel ?>
+    </a>
+</li>

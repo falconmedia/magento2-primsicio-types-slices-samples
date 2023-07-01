@@ -1,0 +1,47 @@
+<?php
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$context     = $block->getContext();
+$headline    = $escaper->escapeHtml($block->getChildHtml('headline'));
+$title       = $escaper->escapeHtml($block->getChildHtml('title'));
+$description = $block->getChildHtml('description');
+$image       = $block->getChildHtml('image');
+?>
+<div class="faq-block container">
+    <div class="faq-block__accordion  js-accordion">
+        <div class="faq-block__group accordion js-accordion flex-col justify-center items-center ">
+            <div class="faq-block__heading js-accordion-trigger">
+                <div class="faq-block__heading--inner m-0">
+                    <?php if ($headline) : ?>
+                        <em class="faq-block__headline"><?= $headline; ?></em>
+                    <?php endif; ?>
+                    <?php if ($title) : ?>
+                        <h2 class="faq-block__title"><?= $title; ?></h2>
+                    <?php endif; ?>
+                    <?php if ($image) : ?>
+                        <img class="faq-block__image" src="<?= $escaper->escapeUrl($image); ?>" <?php if ($title) : ?>alt="<?= $escaper->escapeHtml($title); ?>"<?php endif; ?> />
+                    <?php endif; ?>
+                    <?php if ($description) : ?>
+                        <p class="faq-block__description"><?=/* @noEscape */ $description; ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="faq-block__content accordion__content js-accordion-content ">
+                <div id="dropdown-faq" class="dropdown-list faq-block__dropdown-list ">
+                    <ul
+                        class="dropdown-list__list block-nav__list"
+                        data-mage-init='{"dropdownList": {}}'
+                    >
+                        <?=/* @noEscape */ $block->getChildHtml('items') ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

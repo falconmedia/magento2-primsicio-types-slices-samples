@@ -1,0 +1,27 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ *
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$heading      = $escaper->escapeHtml($block->getChildHtml('heading'));
+$description  = $escaper->escapeHtml($block->getChildHtml('description'));
+$width        = str_replace('/12', '', $block->getChildHtml('width'));
+?>
+
+<section class="footer__newsletter col-xs-12 col-md-<?= $width; ?> mb-l p-4 mt-0 border-none">
+
+    <h3 class="footer__newsletter--title footer__title"><?= $heading ?></h3>
+
+    <?php if ($description) : ?>
+        <p><?= $escaper->escapeHtml($description); ?></p>
+    <?php endif; ?>
+
+    <?=/* @noEscape */ $block->getChildHtml('footer_newsletter.subscribe') ?>
+
+</section>

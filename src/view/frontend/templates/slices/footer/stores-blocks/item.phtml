@@ -1,0 +1,130 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ * @var $productViewModel StoreInfo
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+use FalconMedia\Core\ViewModel\StoreInfo;
+
+$storeViewModel = $block->getData('viewModel');
+
+$link       = $escaper->escapeUrl($block->getChildHtml('link'));
+$logo       = $escaper->escapeUrl($block->getChildHtml('image'));
+$title      = $escaper->escapeHtmlAttr($block->getChildHtml('heading'));
+$address    = $escaper->escapeHtmlAttr($block->getChildHtml('address'));
+$city       = $escaper->escapeHtmlAttr($block->getChildHtml('city'));
+$postcode   = $escaper->escapeHtmlAttr($block->getChildHtml('postcode'));
+$tel        = $escaper->escapeHtmlAttr($block->getChildHtml('tel'));
+$telLink    = $escaper->escapeHtmlAttr($block->getChildHtml('tel_link'));
+$email      = $escaper->escapeHtmlAttr($block->getChildHtml('email'));
+$route      = $escaper->escapeUrl($block->getChildHtml('route'));
+$instagram  = $escaper->escapeUrl($block->getChildHtml('instagram'));
+$facebook   = $escaper->escapeUrl($block->getChildHtml('facebook'));
+
+?>
+
+<div class="col-md-6">
+    <div class="footer__route-address">
+        <h3 class="footer__title"><?= $title ?></h3>
+
+        <div class="m-b--1 flex flex-col">
+            <span>
+                <?= $address ?>
+            </span>
+            <span class="uppercase">
+                <?= $postcode ?> <?= $city ?>
+            </span>
+            <br>
+
+            <span class="phone flex flex-start">
+                <button class="header-button button button--icon button--gray phonenumber">
+                    <a href="tel:<?= $telLink; ?>"
+                       aria-label="<?= $tel; ?>"
+                       title="<?= $tel; ?>">
+                        <svg class="icon button__icon" role="img">
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#custom-phone"></use>
+                        </svg>
+                    </a>
+                    <div class="phonenumber__content">
+                        <span><?= $escaper->escapeHtmlAttr(__('Bel ons op')) ?>:</span>
+                        <span><?= $tel; ?></span>
+                    </div>
+                </button>
+
+                <button class="ml-default header-button button button--icon button--gray phonenumber">
+                    <a href="mailto:<?= $email; ?>"
+                       aria-label="<?= $email; ?>"
+                       title="<?= $email; ?>">
+                        <svg class="icon button__icon" role="img">
+                            <title>Arrow right</title>
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#envelope"></use>
+                        </svg>
+                    </a>
+                    <div class="phonenumber__content">
+                        <span><?= $escaper->escapeHtmlAttr(__('Mail ons op')) ?>:</span>
+                        <span><?= $email; ?></span>
+                    </div>
+                </button>
+
+                <button class="ml-default header-button button button--icon button--gray phonenumber">
+                    <a href="<?= $route ?>"
+                       aria-label="<?= $escaper->escapeHtmlAttr(__('Route naar')) ?> <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?>"
+                       title="<?= $escaper->escapeHtmlAttr(__('Route naar')) ?> <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?>"
+                       target="blank">
+                        <svg class="icon" role="img">
+                            <title>Arrow right</title>
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#maps"></use>
+                        </svg>
+                    </a>
+                    <div class="phonenumber__content">
+                        <span><?= $escaper->escapeHtmlAttr(__('Route naar')) ?> <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?>:</span>
+                    </div>
+                </button>
+
+                <button class="ml-default header-button button button--icon button--gray phonenumber">
+                    <a href="<?= $instagram ?>"
+                       aria-label="<?= $escaper->escapeHtmlAttr(__('Volg')) ?> <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?> <?= $escaper->escapeHtmlAttr(__('op Instagram')) ?>"
+                       title="<?= $escaper->escapeHtmlAttr(__('Volg')) ?> <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?> <?= $escaper->escapeHtmlAttr(__('op Instagram')) ?>"
+                       target="blank">
+                        <svg class="icon" role="img">
+                            <title>Arrow right</title>
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#instagram"></use>
+                        </svg>
+                    </a>
+                    <div class="phonenumber__content">
+                        <span>Volg <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?> op Instagram:</span>
+                    </div>
+                </button>
+
+                <button class="ml-default header-button button button--icon button--gray phonenumber">
+                    <a href="<?= $facebook ?>"
+                       aria-label="<?= $escaper->escapeHtmlAttr(__('Volg')) ?> <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?> <?= $escaper->escapeHtmlAttr(__('op Facebook')) ?>"
+                       title="<?= $escaper->escapeHtmlAttr(__('Volg')) ?> <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?> <?= $escaper->escapeHtmlAttr(__('op Facebook')) ?>"
+                       target="blank">
+                        <svg class="icon" role="img">
+                            <title>Arrow right</title>
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#facebook"></use>
+                        </svg>
+                    </a>
+                    <div class="phonenumber__content">
+                        <span>Volg <?= $escaper->escapeHtmlAttr($storeViewModel->getStoreName()) ?> op Facebook</span>
+                    </div>
+                </button>
+
+            </span>
+        </div>
+
+
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="footer__item footer-openinghours">
+        <h3 class="footer__title"><?= $escaper->escapeHtmlAttr(__('Openingstijden')); ?></h3>
+        <?=/* @noEscape */ $block->getChildHtml('timetable') ?>
+    </div>
+</div>
+

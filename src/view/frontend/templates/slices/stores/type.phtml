@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Elgentos\PrismicIO\Block\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+$type = $block->getChildHtml('type');
+?>
+<?php if ($type == 'locatie') : ?>
+<div class="location">
+    <a href="<?= $escaper->escapeUrl($block->getChildHtml('url')); ?>" class="action-block t-d--n width-full">
+        <?=/* @noEscape */  $block->getChildHtml($type) ?>
+    </a>
+</div>
+<?php endif; ?>
+

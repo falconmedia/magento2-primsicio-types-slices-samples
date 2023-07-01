@@ -1,0 +1,20 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$getMode    = $escaper->escapeHtmlAttr($block->getChildHtml('type'));
+$getIcon    = $escaper->escapeHtmlAttr($block->getChildHtml('icon'));
+?>
+<li class="list__item footer__paymentlogos--item">
+    <span class=" paymenticons__item list__item--<?= $getIcon; ?> paymenticons__footer--item">
+        <svg class="icon paymenticons__icon paymenticons__footer--icon width-w100 height-h40" role="img">
+            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg')); ?>#payment-<?= $getIcon; ?>-<?= $getMode; ?>"></use>
+        </svg>
+    </span>
+</li>

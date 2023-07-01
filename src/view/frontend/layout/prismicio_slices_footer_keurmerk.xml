@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="footer_keurmerk" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/footer/keurmerk/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
+
+        </block>
+    </body>
+</page>

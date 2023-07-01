@@ -1,0 +1,34 @@
+<?php declare(strict_types=1);
+
+/**
+ * Copyright © Falcon Media. All rights reserved.
+ * https://www.falconmedia.nl
+ */
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ *
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$icons = $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg'));
+$color = $escaper->escapeHtml($block->getChildHtml('color'));
+$title = $escaper->escapeHtml($block->getChildHtml('title'));
+$link  = $escaper->escapeUrl($block->getChildHtml('link'));
+$icon  = $escaper->escapeHtml($block->getChildHtml('icon'));
+?>
+
+
+<li class="header-usps--item md-flex justify-center p-xs">
+    <span class="mr-xs">
+        <svg class="icon fill-<?= $color; ?>" role="img">
+            <use xlink:href="<?= $icons; ?>#<?= $icon; ?>"></use>
+        </svg>
+    </span>
+    <span>
+        <a class="color-<?= $color; ?>" href="<?= $link ?>"><?= $title; ?></a>
+    </span>
+</li>

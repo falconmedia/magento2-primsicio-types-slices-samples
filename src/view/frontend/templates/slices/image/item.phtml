@@ -1,0 +1,10 @@
+<?php declare(strict_types=1);
+
+/** @var $block \Elgentos\PrismicIO\Block\Template */
+
+$image = $block->getContext();
+?>
+
+<img src="<?= $image->url; ?>"
+     alt="<?php echo $image->alt; ?>" class="image "
+/>

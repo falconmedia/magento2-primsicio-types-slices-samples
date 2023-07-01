@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="header_menu" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/header/menu/wrapper.phtml">
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.background_color1" as="background_color"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/header/menu/type.phtml">
+
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="header_menu_type.type" as="type"/>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="header_menu_item">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">header_menu_type</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::components/slice/header/menu/menu.phtml">
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="menu_title.0.text" as="heading"/>
+
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                                <argument name="viewModel" xsi:type="object">FalconMedia\Core\ViewModel\StoreInfo</argument>
+                            </arguments>
+
+                            <block as="menu_items" class="Elgentos\PrismicIO\Block\Group">
+                                <arguments>
+                                    <argument name="reference" xsi:type="string">menu_items</argument>
+                                </arguments>
+
+                                <block class="Elgentos\PrismicIO\Block\Template"
+                                       template="Elgentos_PrismicIO::components/slice/header/menu/items/item.phtml">
+                                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="label" as="title" />
+                                    <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link" as="link" />
+                                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="link.slug" as="slug" />
+                                </block>
+
+                            </block>
+                        </block>
+                    </block>
+                </block>
+            </block>
+        </block>
+    </body>
+</page>

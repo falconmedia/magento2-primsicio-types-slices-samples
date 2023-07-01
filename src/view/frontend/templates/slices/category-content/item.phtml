@@ -1,0 +1,17 @@
+<div class="hero hero--secondary hero--category">
+    <div class="hero__wrapper">
+        <div class="hero__content">
+            <h1 class="hero__text--heading--title">
+                <?= $block->getChildHtml('title'); ?>
+            </h1>
+            <p class="hero__text--heading--description">
+                <?= $block->getChildHtml('description'); ?>
+            </p>
+        </div>
+        <div class="hero__image">
+            <img class="image lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                 data-src="<?= $block->getChildHtml('image'); ?>"
+                 alt="<?= $block->getChildHtml('title'); ?>" loading="lazy" />
+        </div>
+    </div>
+</div>

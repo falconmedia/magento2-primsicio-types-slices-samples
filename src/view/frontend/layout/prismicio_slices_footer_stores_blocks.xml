@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="footer_stores_blocks" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/footer/stores-blocks/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.column_width" as="width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.background_color" as="background"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/footer/stores-blocks/type.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Link" template="store_item" as="url"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="store_item.type" as="type"/>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="locatie">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">store_item</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::slices/stores/single.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="image.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="title" as="title"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="adres" as="address" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="postcode" as="postcode" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="plaats" as="city" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="telefoon" as="tel" />
+
+                        </block>
+                    </block>
+
+                </block>
+            </block>
+        </block>
+
+    </body>
+</page>

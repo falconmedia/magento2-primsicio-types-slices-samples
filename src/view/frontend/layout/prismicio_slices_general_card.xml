@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="general_card"
+               class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/general_card.phtml"
+        >
+            <arguments>
+                <argument name="reference" xsi:type="string">primary</argument>
+            </arguments>
+
+            <block name="general_card_title" class="Elgentos\PrismicIO\Block\Layout\PageTitle">
+                <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.meta_title" />
+            </block>
+            <block name="general_card_description" class="Elgentos\PrismicIO\Block\Layout\Metadata\Description">
+                <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.description" />
+            </block>
+        </block>
+    </body>
+</page>

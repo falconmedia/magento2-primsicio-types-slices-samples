@@ -1,0 +1,38 @@
+<?php declare(strict_types=1);
+
+/** @var $block \Elgentos\PrismicIO\Block\Template */
+
+$context = $block->getContext();
+//$fullWidth = ($context->full_width ? true : false);
+$fullWidth = $block->getChildHtml('full_width');
+$imageUrl = $block->getChildHtml('image_url');
+$bannerTitle = $block->getChildHtml('title');
+$bannerDescription = $block->getChildHtml('description');
+$buttonText = $block->getChildHtml('button_text');
+$url = $block->getChildHtml('url');
+
+?>
+
+<div class="banner <?= ($fullWidth ? 'banner--full-width' : '') ?>" <?= ($fullWidth ? 'style="background-image: url('. $imageUrl .')"' : '') ?>>
+    <?php if ($fullWidth) { ?>
+        <div class="banner__gradient"><img src="<?= $imageUrl; ?>" style="display: none;" alt="<?= $bannerTitle; ?>" /></div>
+    <?php } ?>
+    <div class="banner__inner">
+        <div class="banner__content container">
+            <h3 class="banner__title">
+                <?= $bannerTitle; ?>
+            </h3>
+            <div class="banner__description">
+                <?= $bannerDescription ?>
+            </div>
+            <a href="<?= $url ?>" class="button button--skew button--w-max-content button--icon" title="<?= $bannerTitle; ?>">
+                <?= $buttonText; ?>
+                <svg class="icon m-l--2" role="img">
+                    <title><?= $buttonText ?></title>
+                    <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#angle-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+

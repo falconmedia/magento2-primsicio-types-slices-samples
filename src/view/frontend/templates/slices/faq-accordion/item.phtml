@@ -1,0 +1,24 @@
+<?php
+
+$faqId       = $block->getChildHtml('faq_id');
+$faqQuestion = $block->getChildHtml('faq_question');
+$faqAnswer   = $block->getChildHtml('faq_answer');
+
+?>
+
+
+<li class="dropdown-list__item dropdown-list__item--collapse">
+    <button
+        class="dropdown-list__label"
+        aria-expanded="false"
+        aria-controls="dropdown-<?= $faqId; ?>"
+    >
+        <?= $faqQuestion; ?>
+        <svg class="icon dropdown-list__icon" aria-hidden="true" role="img">
+            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#angle-down"></use>
+        </svg>
+    </button>
+    <div id="dropdown-<?= $faqId; ?>" class="dropdown-list__content" aria-hidden="true">
+        <?= $faqAnswer; ?>
+    </div>
+</li>

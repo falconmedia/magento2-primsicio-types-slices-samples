@@ -1,0 +1,36 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$link  = $escaper->escapeUrl($block->getChildHtml('link'));
+$logo  = $escaper->escapeUrl($block->getChildHtml('image'));
+$title = $escaper->escapeHtmlAttr($block->getChildHtml('title'));
+
+?>
+<div class="item p--3">
+<?php if ($link) : ?>
+    <a href="<?= $link ?>"
+       title="<?= $title ?>">
+<?php endif; ?>
+
+        <picture class="brands-item__image image">
+            <source srcset="<?= $logo ?>" data-srcset="<?= $logo ?>" media="(max-width: 1200px)">
+            <source srcset="<?= $logo ?>" data-srcset="<?= $logo ?>" media="">
+            <img
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                 data-src="<?= $logo ?>" alt="<?= $title ?>"
+                 alt="<?= $title ?>"
+            />
+
+        </picture>
+
+<?php if ($link) : ?>
+    </a>
+<?php endif; ?>
+</div>

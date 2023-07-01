@@ -1,0 +1,45 @@
+<?php
+/** @var \Elgentos\PrismicIO\Block\Template $block */
+$itemUrl = $block->getChildHtml('url');
+$itemTitle = $block->getChildHtml('title');
+$itemImage = $block->getChildHtml('image');
+$itemDescription = $block->getChildHtml('description');
+$badge = $block->getChildHtml('badge');
+?>
+<div class="category-grid-item" tabindex="0">
+    <a href="<?= $itemUrl ?>"
+   title="<?= $itemTitle ?>"
+   class="category-grid-item__link"
+   tabindex="0"
+   aria-label="<?= $itemDescription ?>"
+>
+    <?php if ($itemImage):  ?>
+        <picture class="category-grid-item__image image">
+            <source srcset="<?= $itemImage ?>" data-srcset="<?= $itemImage ?>" media="(max-width: 1200px)">
+            <source srcset="<?= $itemImage ?>" data-srcset="<?= $itemImage ?>" media="">
+            <img class="lazyloaded"
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                 data-src="<?= $itemImage ?>" alt="<?= $itemTitle ?>"
+                 alt="<?= $itemTitle ?>"
+            />
+
+        </picture>
+    <?php endif; ?>
+    <div class="category-grid-item__content">
+        <?php if ($badge) { ?>
+            <div class="badge badge--top-left">
+                <span class="badge__text"><?= $badge ?></span>
+            </div>
+        <?php } ?>
+
+        <h3 class="category-grid-item__text">
+            <?= $itemTitle ?>
+        </h3>
+        <span class="category-grid-item__icon">
+            <svg class="icon " role="presentation" focusable="false">
+                <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg')); ?>#angle-right"></use>
+            </svg>
+        </span>
+    </div>
+</a>
+</div>

@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$type = $block->getChildHtml('type');
+
+?>
+
+<?=/* @noEscape */  $block->getChildHtml($type) ?>

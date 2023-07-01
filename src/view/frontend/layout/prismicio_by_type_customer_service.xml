@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="prismicio_slices_divider" />
+    <update handle="prismicio_slices_hero_advanced" />
+    <update handle="prismicio_slices_seo_text" />
+    <update handle="prismicio_slices_usps_horizontal" />
+    <update handle="prismicio_slices_full_width_image" />
+    <update handle="prismicio_slices_faq_accordion" />
+    <update handle="prismicio_slices_banner_with_caption" />
+    <update handle="prismicio_slices_product_collection" />
+    <update handle="prismicio_slices_action_blocks" />
+    <update handle="prismicio_slices_teaser_images" />
+    <update handle="prismicio_slices_stores" />
+    <update handle="prismicio_slices_stores" />
+    <update handle="prismicio_slices_quick_card" />
+    <update handle="prismicio_slices_categories" />
+    <update handle="prismicio_slices_products" />
+    <update handle="prismicio_slices_amasty_form" />
+
+    <update handle="prismicio_slices_menu_items" />
+
+    <body>
+
+        <referenceBlock remove="true" name="page.main.title" />
+        <referenceBlock remove="true" name="header.background" />
+
+        <referenceContainer name="main.content" htmlClass="content-container" />
+        <referenceContainer name="columns" htmlClass="columns container m-t--1" />
+
+        <referenceContainer name="header.breadcrumbs.title">
+            <block name="falcon.block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml">
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+
+                <block name="prismicio.header" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                    <action method="append">
+                        <argument name="element" xsi:type="string">hero_advanced</argument>
+                        <argument name="alias" xsi:type="string">prismicio.header.hero_advanced</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">usps_horizontal</argument>
+                        <argument name="alias" xsi:type="string">prismicio.header.usps_horizontal</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.main">
+            <block name="falcon.block.customer_service.sidebar" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.sidebar.phtml">
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+
+                <block name="prismicio.sidebar" class="Elgentos\PrismicIO\Block\Slices" template="body1">
+
+                    <action method="append">
+                        <argument name="element" xsi:type="string">menu_items</argument>
+                        <argument name="alias" xsi:type="string">prismicio.sidebar.menu_items</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block name="falcon.block.content-data" class="Elgentos\PrismicIO\Block\Wrapper" template="Elgentos_PrismicIO::components/type/customer-service/prismic.content.phtml">
+
+                <block name="prismicio_page_title" class="Elgentos\PrismicIO\Block\Layout\PageTitle">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="data.title" />
+                </block>
+
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+
+                <block name="prismicio.customer_service.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                    <action method="append">
+                        <argument name="element" xsi:type="string">divider</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.divider</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">hero_advanced</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.hero_advanced</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">seo_text</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.seo_text</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">full_width_image</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.full_width_image</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">faq_accordion</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.faq_accordion</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">banner_with_caption</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.banner_with_caption</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">product_collection</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.product_collection</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">action_blocks</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.action_blocks</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">teaser_images</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.teaser_images</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">stores</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.stores</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">quick_card</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.quick_card</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">categories</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.categories</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">products</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.products</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">amasty_form</argument>
+                        <argument name="alias" xsi:type="string">prismicio.customer_service.body.amasty_form</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <move element="div.sidebar.main" destination="columns" before="main"/>
+    </body>
+</page>

@@ -1,0 +1,30 @@
+<?php
+
+declare(strict_types=1);
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+?>
+    <div class="location__inner width-full">
+        <div class="flex-col relative">
+            <div class="relative border-primary">
+                <div class="location__image padding-0 margin-0 flex">
+
+                        <img class="lazyload" src="<?= $escaper->escapeUrl($block->getChildHtml('image')); ?>" />
+
+                </div>
+                <div class="lg-position-absolute flex-col flex left bottom pt-s lg-px-s bg-gray-lightest lg-rounded-left">
+                    <h3 class="location__title normal-case "><?= $escaper->escapeHtml($block->getChildHtml('title')); ?></h3>
+                    <span><?= $escaper->escapeHtml($block->getChildHtml('address')); ?></span>
+                    <span><?= $escaper->escapeHtml($block->getChildHtml('postcode')); ?> <?= $escaper->escapeHtml($block->getChildHtml('city')); ?></span>
+                    <span>Tel: <?= $escaper->escapeHtml($block->getChildHtml('tel')); ?></span>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,22 @@
+<?php
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+$context    = $block->getContext();
+$menuTitle  = $block->getChildHtml('heading');
+?>
+<div class="sidebar-nav mt-7 relative">
+
+    <div class="sidebar-nav__content sticky top">
+        <h3 class="heading heading--fifth-level sidebar-nav__title"><?= $escaper->escapeHtml(__('Customer Service')); ?></h3>
+        <ul class="list footer-contact-list sidebar-nav__list">
+            <?=/* @noEscape */ $block->getChildHtml('items') ?>
+        </ul>
+    </div>
+
+</div>

@@ -1,0 +1,67 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$context = $block->getContext();
+//$fullWidth          = ($context->full_width ? true : false);
+$fullWidth          = $escaper->escapeHtml($block->getChildHtml('full_width'));
+$position           = $escaper->escapeHtml($block->getChildHtml('text_position'));
+$background         = $escaper->escapeHtml($block->getChildHtml('background'));
+$imageUrl           = $escaper->escapeUrl($block->getChildHtml('image_url'));
+$image1280Url       = $escaper->escapeUrl($block->getChildHtml('image_url_1280'));
+$image1024Url       = $escaper->escapeUrl($block->getChildHtml('image_url_1024'));
+$image768Url        = $escaper->escapeUrl($block->getChildHtml('image_url_768'));
+$bannerTitle        = $escaper->escapeHtml($block->getChildHtml('title'));
+$bannerDescription  = $block->getChildHtml('description');
+$buttonText         = $escaper->escapeHtml($block->getChildHtml('button_text'));
+$url                = $escaper->escapeUrl($block->getChildHtml('url'));
+
+?>
+<div class="section">
+    <div class="<?= ($fullWidth ? 'fullwidth' : 'container'); ?>">
+        <div class="section__content">
+            <div class="teaser teaser--<?= $background ?> <?= ($position ? '' : 'teaser--secondary') ?>">
+                <picture class="image teaser__image">
+                    <source srcset="<?= $image768Url; ?>"
+                            data-srcset="<?= $image768Url; ?>"
+                            media="(max-width: 768px)"
+                    >
+                    <source srcset="<?= $image1024Url; ?>"
+                            data-srcset="<?= $image1024Url; ?>"
+                            media="(max-width: 1024px)"
+                    >
+                    <source srcset="<?= $image1280Url; ?>"
+                            data-srcset="<?= $image1280Url; ?>"
+                            media=""
+                    >
+                    <img src="<?= $imageUrl; ?>" alt="<?= $bannerTitle; ?>" />
+                </picture>
+                <div class="teaser__content">
+                    <div class="teaser__content-block">
+                        <div class="content-block">
+                            <div class="content-block__row row">
+                                <div class="content-block__column col-xs-12">
+                                    <h2 class="content-block__heading">
+                                        <?= $bannerTitle; ?>
+                                    </h2>
+                                    <div class="paragraph content-block__description">
+                                        <span><?=/* @noEscape */ $bannerDescription ?></span>
+                                    </div>
+                                    <a class="link content-block__link" href="<?= $url ?>" title="<?= $buttonText; ?>">
+                                        <?= $buttonText ?>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

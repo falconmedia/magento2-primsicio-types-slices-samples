@@ -1,0 +1,73 @@
+<?php
+//$sliderHtml = $block->getChildHtml('slider');
+
+declare(strict_types=1);
+
+use Magento\Framework\Escaper;
+use Elgentos\PrismicIO\Block\Template;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+//$context    = $block->getContext();
+$mobileType = $block->getChildhtml('mobile_type');
+$title      = $block->getChildhtml('title');
+$slider_id  = uniqid();
+
+//highlight_string(print_r($context, true));
+?>
+
+<div class="section">
+    <div class="container">
+        <?php if ($title) : ?>
+            <div class="section__heading">
+                <h4 class="size-l"><?= $escaper->escapeHtml($title); ?></h4>
+            </div>
+        <?php endif; ?>
+        <div class="stores <?= ($mobileType ? "sliderhtml-'. $escaper->escapeHtml($slider_id).'" : "flex xs-flex-column md-flex-row row-gap-2 column-gap-2"); ?>">
+            <?=/* @noEscape */  $block->getChildHtml('items') ?>
+        </div>
+    </div>
+</div>
+<?php if ($mobileType) : ?>
+<script>
+    // <![CDATA[
+    require([
+        'jquery',
+        'domReady',
+        'slick',
+    ], function ($) {
+        $(".sliderhtml-<?= $escaper->escapeHtml($slider_id); ?>").slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 769,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 540,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+    // ]]>
+</script>
+<?php endif; ?>

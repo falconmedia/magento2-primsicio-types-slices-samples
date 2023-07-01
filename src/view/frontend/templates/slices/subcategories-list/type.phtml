@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$type = $block->getChildHtml('type');
+$dummy = $block->getContext();
+//var_dump($block->getContext());die; // show only output
+//highlight_string(print_r($dummy, true)); // show inline on page
+?>
+
+<?=/* @noEscape */  $block->getChildHtml($type) ?>

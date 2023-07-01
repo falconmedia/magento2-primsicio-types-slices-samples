@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="faq_section" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/faq-section/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.eyebrow_headline.0.text" as="headline"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.title.0.text" as="title"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.description.0.text" as="description"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.optional_image.url" as="image"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::components/slice/faq-section/item.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title" as="question"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\RichText" template="text" as="answer"/>
+                </block>
+            </block>
+        </block>
+
+    </body>
+</page>

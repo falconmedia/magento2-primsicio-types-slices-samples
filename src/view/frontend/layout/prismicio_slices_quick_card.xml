@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="quick_card" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/quick-card/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider" as="slider"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.full_width" as="full_width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.visible_products" as="show"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.heading.0.text" as="heading"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/quick-card/item.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="background_color" as="bgc"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="hover_bgc" as="hover_bgc"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="text_color" as="color"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="icon" as="icon"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="text" as="text"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Link" template="url" as="link"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="icon_size" as="icon_size"/>
+                </block>
+
+            </block>
+
+        </block>
+
+    </body>
+</page>

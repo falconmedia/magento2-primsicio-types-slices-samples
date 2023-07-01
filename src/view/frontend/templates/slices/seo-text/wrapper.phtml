@@ -1,0 +1,14 @@
+<?php
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+?>
+
+<div class="container">
+    <?= /* @noEscape */ $block->getChildHtml('seotext') ?>
+</div>

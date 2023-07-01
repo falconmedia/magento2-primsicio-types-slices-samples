@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+
+        </referenceContainer>
+        <block name="amasty_form" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/amasty-form/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="column_width" as="width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="primary.form_title" as="title" />
+            <block class="Elgentos\PrismicIO\Block\Dom\RichText" template="primary.form_description" as="description" />
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.form_id" as="id" />
+        </block>
+    </body>
+</page>

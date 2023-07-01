@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <update handle="prismicio_slices_footer_row" />
+
+    <body>
+        <block name="prismicio.footer" class="Elgentos\PrismicIO\Block\StaticBlock">
+            <arguments>
+                <argument name="data" xsi:type="array">
+                    <item name="identifier" xsi:type="string">footer</item>
+                    <item name="content_type" xsi:type="string">footer</item>
+                </argument>
+            </arguments>
+            <block name="prismicio.footer.wrapper"
+                   class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::components/static/footer/wrapper.phtml">
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+
+                <block name="prismicio.footer.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                    <action method="append">
+                        <argument name="element" xsi:type="string">footer_row</argument>
+                        <argument name="alias" xsi:type="string">prismicio.footer.body.footer_row</argument>
+                    </action>
+
+                </block>
+            </block>
+        </block>
+    </body>
+</page>

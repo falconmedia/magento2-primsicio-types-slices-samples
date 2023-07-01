@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+$bg     = $block->getChildHtml('background');
+$style  = $block->getChildHtml('style');
+$type   = $block->getChildHtml('type');
+
+?>
+
+<?=/* @noEscape */ $block->getChildHtml('items'); ?>

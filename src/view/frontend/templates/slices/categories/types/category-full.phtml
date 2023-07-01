@@ -1,0 +1,31 @@
+<?php
+/** @var \Elgentos\PrismicIO\Block\Template $block */
+
+$itemUrl = $block->getChildHtml('url');
+$itemTitle = $block->getChildHtml('title');
+$itemImage = $block->getChildHtml('image');
+$badge = $block->getChildHtml('badge');
+?>
+<a href="<?= $itemUrl ?>"
+   title="<?= $itemTitle ?>"
+   class="banner"
+   aria-label="<?= $itemTitle ?>"
+>
+    <?php if ($itemImage): ?>
+        <picture class="image">
+            <?php if ($badge) { ?>
+                <div class="badge badge--bottom-right">
+                    <span class="badge__text"><?= $badge ?></span>
+                </div>
+            <?php } ?>
+                <source srcset="<?= $itemImage ?>" data-srcset="<?= $itemImage ?>" media="(max-width: 1200px)">
+                <source srcset="<?= $itemImage ?>" data-srcset="<?= $itemImage ?>" media="">
+                <img class="lazyloaded"
+                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     data-src="<?= $itemImage ?>" alt="<?= $itemTitle ?>"
+                     alt="<?= $itemTitle ?>"
+                />
+
+        </picture>
+    <?php endif; ?>
+</a>

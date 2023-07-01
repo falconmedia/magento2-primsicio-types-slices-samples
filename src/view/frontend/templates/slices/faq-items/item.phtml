@@ -1,0 +1,62 @@
+<?php
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$faqUrl      = $block->getChildHtml('faq_url');
+$faqQuestion = $block->getChildHtml('faq_question');
+$faqImage    = $block->getChildHtml('faq_image');
+
+$badgeText   = $block->getChildHtml('badge_text');
+$buttonText  = $block->getChildHtml('button_text');
+
+$video = $block->getChildHtml('faq_video');
+?>
+
+<div class="faq-item-4">
+    <div class="faq-item">
+        <?php if ($badgeText): ?>
+            <div class="badge badge--green badge--top-centered">
+                <span class="badge__text"><?= $badgeText ?></span>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($faqImage): ?>
+            <div class="faq-item__image">
+                <a href="<?= $faqUrl ?>" title="<?= $faqQuestion ?>" >
+                    <img class="image lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                         data-src="<?= $faqImage ?>" alt="<?= $faqQuestion ?>"
+                         loading="lazy" />
+                </a>
+            </div>
+        <?php endif; ?>
+
+        <div class="faq-item__content">
+            <h3 class="faq-item__question">
+                <?= $faqQuestion ?>
+            </h3>
+
+            <div class="faq-item__button">
+                <a href="<?= $faqUrl ?>"
+                   class="button <?= ($video ? 'button--text' : '')?>">
+                    <?php if ($video)  { ?>
+                        <svg class="icon m-r--1" role="img">
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#play-button"></use>
+                        </svg>
+                    <?php } ?>
+                        <span class="button__text"><?= $buttonText ?></span>
+                    <?php if (!$video)  { ?>
+                        <svg class="icon m-l--1 button__icon" role="img">
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#angle-right"></use>
+                        </svg>
+                    <?php } ?>
+
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

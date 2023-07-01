@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var $block Elgentos\PrismicIO\Block\Template
+ */
+
+$context = $block->getContext();
+$heading = $block->getChildHtml('heading');
+?>
+<div class="container faq-block">
+    <div class="row">
+        <div class="faq-block--accordion  js-accordion col-md-12">
+            <div class="accordion js-accordion">
+                <div class="faq-block--title js-accordion-trigger">
+                    <h3><?= $heading ?></h3>
+                </div>
+                <div class="faq-block__content accordion__content js-accordion-content" >
+                    <div id="dropdown-default" class="dropdown-list ">
+                        <ul
+                            class="dropdown-list__list block-nav__list"
+                            data-mage-init='{"dropdownList": {}}'
+                        >
+                            <?= $block->getChildHtml('items') ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

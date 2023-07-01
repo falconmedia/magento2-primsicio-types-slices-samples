@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="categories" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::slices/categories/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.block_style" as="block_style"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.heading.0.text" as="heading"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider" as="slider"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.show_arrows" as="arrows"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.show_dots" as="dots"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.speed" as="speed"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.slides_to_show" as="show"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slides_to_scroll" as="scroll"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.breakpoint_mobile_show" as="breakpoint_mobile_show"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.breakpoint_ipad_show" as="breakpoint_ipad_show"/>
+
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::slices/categories/type.phtml">
+
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="col_width" as="grid"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="background_color" as="background"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category.type" as="type"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="category_badge" as="category_badge"/>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="category_block">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">category</argument>
+                        </arguments>
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::slices/categories/types/category-block.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="url" as="url"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title" as="title"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category_image.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="description.0.text" as="description"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="button_text" as="button"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="badge_text" as="badge"/>
+                        </block>
+                    </block>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="category_full">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">category</argument>
+                        </arguments>
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::slices/categories/types/category-full.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="url" as="url"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title" as="title"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category_image.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="badge_text" as="badge"/>
+                        </block>
+                    </block>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="category_banner">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">category</argument>
+                        </arguments>
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::slices/categories/types/category-banner.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="url" as="url"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title" as="title"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category_image.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="badge_text" as="badge"/>
+                        </block>
+                    </block>
+
+                </block>
+            </block>
+        </block>
+
+    </body>
+</page>

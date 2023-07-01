@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="full_width_image"
+               class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/full-width-image/wrapper.phtml"
+        >
+            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="primary.full_width_image" name="link" />
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category_image.url" as="image"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category_image.alt" as="image_alt"/>
+        </block>
+    </body>
+</page>

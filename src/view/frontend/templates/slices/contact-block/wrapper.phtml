@@ -1,0 +1,35 @@
+<?php
+/** @var \Elgentos\PrismicIO\Block\Template $block */
+/** @var \FalconMedia\Core\ViewModel\StoreInfo $storeInfo */
+$storeInfo = $block->getData('viewModel');
+$form = $block->getChildHtml('form');
+$address = $block->getChildHtml('address');
+$image = $block->getChildHtml('image_url');
+?>
+<?php if ($image) { ?>
+    <picture class="contact-block__image image">
+        <img src="<?= $block->getChildHtml('image_url') ?>"/>
+    </picture>
+<?php } ?>
+<?php if ($form) { ?>
+    <div class="contact-block">
+        <div class="contact-block__form">
+            <?= $block->getChildHtml('contact_form'); ?>
+        </div>
+    </div>
+<?php } ?>
+<?php if ($address) { ?>
+    <div class="contact-block">
+        <div class="contact-block__address">
+            <h2><?= $storeInfo->getStoreName(); ?></h2>
+            <address>
+                <?= $storeInfo->getStoreAddress(); ?><br/>
+                <?= $storeInfo->getStorePostcode(); ?>  <?= $storeInfo->getStoreCity(); ?><br/>
+                <?= $storeInfo->getStoreCountry(); ?>
+            </address>
+            <span class="contact-phone"> <a href="tel:<?= $storeInfo->getStorePhone(); ?>"><?= $storeInfo->getStorePhone(); ?></a> </span><br/>
+            <span class="contact-mail"> <a href="mailto:<?= $storeInfo->getStoreMail(); ?>"><?= $storeInfo->getStoreMail(); ?></a></span>
+        </div>
+    </div>
+<?php } ?>
+

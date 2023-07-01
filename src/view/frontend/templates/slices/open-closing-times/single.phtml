@@ -1,0 +1,36 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$context        = $block->getContext();
+$status         = $block->getChildHtml('status');
+$openHour       = $block->getChildHtml('open_hour');
+$openMinute     = $block->getChildHtml('open_minute');
+$closeHour      = $block->getChildHtml('close_hour');
+$closeMinute    = $block->getChildHtml('close_minute');
+?>
+
+<div class=" flex flex-row justify-between <?= $escaper->escapeHtml($block->getChildHtml('day')); ?>">
+    <span class="day"><?= $escaper->escapeHtml($block->getChildHtml('day')); ?></span>
+
+    <?php if($status) : ?>
+    <span class="open">
+        <span class="open-<?= $escaper->escapeHtml($openHour); ?>-<?= $escaper->escapeHtml($openMinute); ?>">
+            <?= $escaper->escapeHtml($openHour); ?>:<?= $escaper->escapeHtml($openMinute); ?>
+        </span>
+        <span> - </span>
+        <span class="close-<?= $escaper->escapeHtml($closeHour); ?>-<?= $escaper->escapeHtml($closeMinute); ?>">
+            <?= $escaper->escapeHtml($closeHour); ?>:<?= $escaper->escapeHtml($closeMinute); ?> uur
+        </span>
+    <?php else: ?>
+        <span class="closed"><?= $escaper->escapeHtml(__('Gesloten')); ?></span>
+    <?php endif; ?>
+    </span>
+</div>
+

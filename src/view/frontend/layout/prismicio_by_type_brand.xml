@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="prismicio_slices_divider" />
+    <update handle="prismicio_slices_hero" />
+    <update handle="prismicio_slices_usps_horizontal" />
+    <update handle="prismicio_slices_image" />
+    <update handle="prismicio_slices_products_and_categories" />
+    <update handle="prismicio_slices_banner_with_caption" />
+    <update handle="prismicio_slices_faq_items" />
+    <update handle="prismicio_slices_seo_text" />
+
+
+    <body>
+
+        <referenceBlock remove="true" name="page.main.title" />
+        <referenceBlock remove="true" name="header.background" />
+
+        <referenceContainer name="main.content" htmlClass="content-container" />
+        <referenceContainer name="columns" htmlClass="columns" />
+
+
+        <referenceContainer name="header.breadcrumbs.title">
+            <block name="falcon.block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml" after="-">
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+
+                <block name="prismicio.header" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                    <action method="append">
+                        <argument name="element" xsi:type="string">hero</argument>
+                        <argument name="alias" xsi:type="string">prismicio.header.hero</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">usps_horizontal</argument>
+                        <argument name="alias" xsi:type="string">prismicio.header.usps_horizontal</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block name="falcon.block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::brand/prismic.content.phtml">
+
+                <block name="prismicio_page_title" class="Elgentos\PrismicIO\Block\Layout\PageTitle">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.meta_title" />
+                </block>
+                <block name="prismicio_description" class="Elgentos\PrismicIO\Block\Layout\Metadata\Description">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.meta_description" />
+                </block>
+
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+
+                <block name="prismicio.brand.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                    <action method="append">
+                        <argument name="element" xsi:type="string">divider</argument>
+                        <argument name="alias" xsi:type="string">prismicio.brand.body.divider</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">banner_with_caption</argument>
+                        <argument name="alias" xsi:type="string">prismicio.brand.body.banner_with_caption</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">image</argument>
+                        <argument name="alias" xsi:type="string">prismicio.brand.body.image</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">image</argument>
+                        <argument name="alias" xsi:type="string">prismicio.brand.body.image</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">products_and_categories</argument>
+                        <argument name="alias" xsi:type="string">prismicio.brand.body.products_and_categories</argument>
+                    </action>
+                    <action method="append">
+                        <argument name="element" xsi:type="string">seo_text</argument>
+                        <argument name="alias" xsi:type="string">prismicio.brand.body.seo_text</argument>
+                    </action>
+
+                    <block class="Elgentos\PrismicIO\Block\Container" name="prismicio.brand.body.faq_items">
+                        <arguments>
+                            <argument name="htmlClass" xsi:type="string">container</argument>
+                            <argument name="htmlTag" xsi:type="string">div</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Container">
+                            <arguments>
+                                <argument name="htmlClass" xsi:type="string">row faq-items</argument>
+                                <argument name="htmlTag" xsi:type="string">div</argument>
+                            </arguments>
+                            <action method="append">
+                                <argument name="element" xsi:type="string">faq_items</argument>
+                            </action>
+                        </block>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+
+
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Home</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Home</item>
+                    <item name="label" xsi:type="string" translate="true">Home</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Merken</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Merken</item>
+                    <item name="label" xsi:type="string" translate="true">Merken</item>
+                </argument>
+            </action>
+        </referenceBlock>
+
+        <move element="breadcrumbs" destination="falcon.block.hero-data" before="-" />
+<!--        <move element="div.sidebar.main" destination="columns" before="main"/>-->
+        <move element="div.seo.main" destination="head.additional" before="main"/>
+
+
+    </body>
+</page>

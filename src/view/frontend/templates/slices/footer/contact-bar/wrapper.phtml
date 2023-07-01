@@ -1,0 +1,22 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ *
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$width    = str_replace('/12', '', $block->getChildHtml('width'));
+$bg       = $block->getChildHtml('background_color');
+
+?>
+
+<section class="contact-bar__footer col-xs-12 col-md-<?= $width; ?> bg-<?= ($bg ?: 'transparent'); ?>  mb-l p-4 mt-0">
+    <h3 class="heading--third-level"><?= $block->getChildHtml('heading'); ?></h3>
+    <div class="row">
+        <?=/* @noEscape */ $block->getChildHtml('items') ?>
+    </div>
+</section>

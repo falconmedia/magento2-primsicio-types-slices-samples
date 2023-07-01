@@ -1,0 +1,39 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+
+$days = array("maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag" , "zondag");
+$dagen = array ("Mon","Tue","Wed","Thu","Fri","Sat","Sun");
+$months = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+$maanden = array("januari","februari", "maart","april", "mei","juni","juli","augustus","september","oktober","november","december");
+
+$nowDayEng  = date('D');
+$nowHour    = date('H');
+$nowMinute  = date('m');
+
+?>
+
+<div class="openingstijden container flex justify-end">
+        <div class="timetable col-md-4 col-lg-3 align-self-end bg-white p-6 ">
+            <h3><?= $escaper->escapeHtml(__('Openingstijden')); ?>:</h3>
+            <?=/* @noEscape */  $block->getChildHtml('items') ?>
+
+
+        </div>
+    <style>
+        .timetable {
+            margin-top: -150px;
+            position: relative;
+        }
+        .<?= str_replace( $dagen,$days, $nowDayEng); ?> {
+            font-weight: 900;
+        }
+    </style>
+</div>

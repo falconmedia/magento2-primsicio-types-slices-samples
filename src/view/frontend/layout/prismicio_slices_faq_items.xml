@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="faq_items" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/faq-items.phtml">
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Document" template="faq_items">
+                    <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::elements/faq-item.phtml">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">data</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="faq_group" as="faq_group"/>
+                        <block class="Elgentos\PrismicIO\Block\Dom\Text" template="question" as="faq_question"/>
+                        <block class="Elgentos\PrismicIO\Block\Dom\Text" template="answer" as="faq_answer"/>
+                        <block class="Elgentos\PrismicIO\Block\Dom\Text" template="badge" as="badge_text"/>
+                        <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="video" as="faq_video"/>
+                        <block class="Elgentos\PrismicIO\Block\Dom\Text" template="button_text" as="faq_button"/>
+                        <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="image.url" as="faq_image"/>
+
+                    </block>
+                </block>
+            </block>
+        </block>
+
+    </body>
+</page>

@@ -1,0 +1,38 @@
+{
+  "name": "falconmedia/magento2-primsicio-types-slices-samples",
+  "description": "PrismicIO add-on for types and slices  ",
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "require": {
+    "elgentos/module-prismicio": "*"
+  },
+  "authors": [
+    {
+      "name": "Henk Valk",
+      "email": "henk@falconmedia.nl"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://mirror.mage-os.org/"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "src/registration.php"
+    ],
+    "psr-4": {
+      "FalconMedia\\PrismicIOTypesSlices\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "magento/composer-dependency-version-audit-plugin": true
+    }
+  },
+  "minimum-stability": "stable"
+}

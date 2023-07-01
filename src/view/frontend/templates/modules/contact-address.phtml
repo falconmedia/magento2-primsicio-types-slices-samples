@@ -1,0 +1,19 @@
+<?php
+/** @var StoreInfo $storeInfo */
+
+use FalconMedia\Core\ViewModel\StoreInfo;
+
+$storeInfo = $block->getData('storeInfo');
+?>
+<div class="contact-us__address">
+    <h2 class="contact-us__heading"><?= $escaper->escapeHtml(__('Warehouse & office address!')); ?></h2>
+
+    <p class="contact-us__address-item">
+        <span class="icon contact-information--mail__icon" aria-label="">
+            <svg class="icon" role="img">
+                <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg')); ?>#pin"></use>
+            </svg>
+        </span>
+        <span class="font-size--m"><?= $escaper->escapeHtml($storeInfo->getStoreAddress()); ?></span></p>
+    <p class="contact-us__address-item"><span class="font-size--m"><?= $escaper->escapeHtml($storeInfo->getStorePostcode()); ?> <?= $escaper->escapeHtml($storeInfo->getStoreCity()); ?></span></p>
+</div>

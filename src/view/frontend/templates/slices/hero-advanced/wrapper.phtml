@@ -1,0 +1,89 @@
+<?php
+/**
+ * @var $block Elgentos\PrismicIO\Block\Template
+ * @var $escaper \Magento\Framework\Escaper
+ */
+
+$context    = $block->getContext();
+$sliderHtml = $block->getChildHtml('slider');
+$fullWidth  = $block->getChildHtml('full_width');
+$sliderNav  = $block->getChildHtml('slider_nav');
+$bullets    = $block->getChildHtml('slider_bullets');
+$autoplay   = $block->getChildHtml('autoplay');
+$speed      = $block->getChildHtml('autoplay_speed');
+$fade       = $block->getChildHtml('fade');
+$bg         = $block->getChildHtml('background');
+$sliderId   = uniqid(4);
+?>
+
+<section class="hero-image bg-<?= ($bg ?: 'transparent') ?> text-gray-700 body-font">
+    <div class="relative">
+        <div class="<?= ($escaper->escapeHtml($fullWidth) ? 'fullwidth' : 'container max-w-screen-2xl mx-auto px-0'); ?>">
+            <div class="relative sm:overflow-hidden">
+
+            <?php if ($sliderHtml) : ?>
+                <div class="sliderhtml-<?= $sliderId; ?>">
+            <?php endif; ?>
+                    <?=/* @noEscape */  $block->getChildHtml('items') ?>
+            <?php if ($sliderHtml) : ?>
+                </div>
+            <?php endif; ?>
+
+            </div>
+        </div>
+    </div>
+</section>
+<?php if ($sliderHtml) : ?>
+    <script>
+        // <![CDATA[
+        require([
+            'jquery',
+            'domReady',
+            'slick',
+        ], function ($) {
+            $(".sliderhtml-<?= $sliderId; ?>").slick({
+                dots: <?= ($bullets ? 'true' : 'false');?> ,
+                arrows: <?= ($sliderNav ? 'true' : 'false');?>,
+                infinite: true,
+                speed: 300,
+                fade: <?= ($fade ? 'true' : 'false');?>,
+                cssEase: 'linear',
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                lazyLoad: 'ondemand',
+                <?php if ($autoplay) : ?>
+                    autoplay: <?= $autoplay; ?>,
+                    <?php if ($speed) : ?>
+                        autoplaySpeed: <?= $speed; ?>,
+                        <?php else: ?>
+                        autoplaySpeed: 300,
+                    <?php endif; ?>
+                <?php endif; ?>
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 769,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 540,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+        // ]]>
+    </script>
+<?php endif; ?>

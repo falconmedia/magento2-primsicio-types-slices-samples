@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="products" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/products.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider" as="slider"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.full_width" as="full_width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.visible_products" as="show"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.heading.0.text" as="heading"/>
+            <referenceBlock name="product_slider_block">
+                <arguments>
+                    <argument name="slider_block" xsi:type="string">product_slider</argument>
+                </arguments>
+                <block
+                    class="Magento\Framework\View\Element\Template"
+                    name="product_slider"
+                    template="Magento_Theme::html/slider.phtml"
+                />
+            </referenceBlock>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::modules/product-type-chooser.phtml">
+
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="slider_item" as="slider_item"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="background_color" as="background"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="product.type" as="type"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="category_badge" as="category_badge"/>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="product_block">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">product</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::elements/product.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                                <argument name="viewModel" xsi:type="object">FalconMedia\PrismicIO\ViewModel\Product</argument>
+                            </arguments>
+
+                            <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="product_url" as="url"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="product_sku" as="sku"/>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="product_title" as="title"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="product_image.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="button_text" as="button"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="badge_text" as="badge"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="badge_color" as="badge_color"/>
+                        </block>
+                    </block>
+                </block>
+            </block>
+        </block>
+
+    </body>
+</page>

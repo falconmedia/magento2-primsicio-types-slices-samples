@@ -1,0 +1,51 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$heroicons       = $viewModels->require(\Hyva\Theme\ViewModel\HeroiconsOutline::class);
+$titleFirst      = $block->getChildHtml('hero_title');
+$titleSecond     = $block->getChildHtml('hero_title_colored');
+$description     = $block->getChildHtml('hero_description');
+$button          = $block->getChildHtml('hero_button');
+
+
+?>
+
+<div class="hero grid sm:h-2/3 md:h-auto">
+    <div class="hero__wrapper flex relative justify-evenly items-center">
+        <div class="hero__text container">
+            <h1 class="italic text-white leading-140 italic text-5xl skew-x-min-6 flex flex-col">
+                <span><?= $titleFirst; ?></span>
+                <?php if ($titleSecond) : ?>
+                    <span class="header-colored"><?= $titleSecond; ?></span>
+                <?php endif; ?>
+            </h1>
+            <?php if ($description) : ?>
+                <h4 class="text-white font-saira">
+                    <?= $description; ?>
+                </h4>
+            <?php endif;?>
+            <?php if ($button) : ?>
+            <a class="btn btn-primary justify-center ml-l font-bold py-4 uppercase text-sm w-max mr-auto items-center skew-x-min-12 "
+               href="<?= $block->getChildHtml('hero_link') ?>"
+               title="<?= $button; ?>"
+            >
+                <?= $button; ?>
+                <?= $heroicons->chevronRightHtml('w-4 h-4 ml-s') ?>
+            </a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="hero__background">
+        <picture class="image">
+            <img src="<?= $block->getChildHtml('hero_image') ?>" />
+        </picture>
+    </div>
+</div>
+

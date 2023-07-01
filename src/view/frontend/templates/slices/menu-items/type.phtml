@@ -1,0 +1,17 @@
+<?php
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+
+$type    = $block->getChildHtml('type');
+$current = $block->getChildHtml('current');
+
+?>
+<li class="list__item sidebar-nav__item <?= $escaper->escapeHtml(($current ? 'current' : '')); ?>">
+    <?=/* @noEscape */  $block->getChildHtml($type) ?>
+</li>

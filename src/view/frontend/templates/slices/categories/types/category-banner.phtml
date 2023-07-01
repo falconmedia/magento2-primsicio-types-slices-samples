@@ -1,0 +1,42 @@
+<?php
+/** @var \Elgentos\PrismicIO\Block\Template $block */
+
+$itemUrl = $block->getChildHtml('url');
+$itemTitle = $block->getChildHtml('title');
+$itemImage = $block->getChildHtml('image');
+$badge = $block->getChildHtml('badge');
+?>
+<a href="<?= $itemUrl ?>"
+   title="<?= $itemTitle ?>"
+   class="banner col-xs-6 col-lg-3 mb-l"
+   aria-label="<?= $itemTitle ?>"
+>
+<?php if ($itemImage): ?>
+    <picture class="image">
+        <?php if ($badge) { ?>
+            <div class="badge badge--bottom-right">
+                <span class="badge__text"><?= $badge ?></span>
+            </div>
+        <?php } ?>
+            <source srcset="<?= $itemImage ?>" data-srcset="<?= $itemImage ?>" media="(max-width: 1200px)">
+            <source srcset="<?= $itemImage ?>" data-srcset="<?= $itemImage ?>" media="">
+            <img class="lazyloaded"
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                 data-src="<?= $itemImage ?>" alt="<?= $itemTitle ?>"
+                 alt="<?= $itemTitle ?>"
+            />
+
+    </picture>
+<?php endif; ?>
+    <div class="banner__content px-0">
+        <p class="banner__text normal-case">
+            <?= $itemTitle ?>
+        </p>
+        <span class="banner__icon">
+            <svg class="icon " role="presentation" focusable="false">
+                <title>Arrow right icon</title>
+                <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg')); ?>#arrow-right"></use>
+            </svg>
+        </span>
+    </div>
+</a>

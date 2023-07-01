@@ -1,0 +1,37 @@
+<?php
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$context       = $block->getContext();
+$rowStyle      = $escaper->escapeHtml($block->getChildHtml('row_style'));
+$sliderEnabled = $escaper->escapeHtml($block->getChildHtml('slider'));
+?>
+
+<div class="<?= ($rowStyle ? 'fullwidth': 'container')?>">
+    <div class="<?= ($sliderEnabled ? 'slider slider--responsive js-slider': ''); ?>" <?= ($sliderEnabled ? 'data-mage-init=\'{ "product-slider": {} }\'': ''); ?>>
+        <?php if ($sliderEnabled) : ?>
+            <div class="slider__button slider__button--left js-slider-control js-left">
+                <svg class="icon slider__button--icon" role="img">
+                    <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#angle-left"></use>
+                </svg>
+            </div>
+        <?php endif; ?>
+
+        <div class="<?= ($sliderEnabled ? 'slider__inner js-slider-area': 'row'); ?> ">
+            <?= $block->getChildHtml('items') ?>
+        </div>
+
+        <?php if ($sliderEnabled) : ?>
+            <div class="slider__button slider__button--right js-slider-control js-right">
+                <svg class="icon slider__button--icon" role="img">
+                    <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#angle-right"></use>
+                </svg>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

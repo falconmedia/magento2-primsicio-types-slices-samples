@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$question   = $escaper->escapeHtml($block->getChildHtml('question'));
+$answer     = $block->getChildHtml('answer');
+
+$id = uniqid();
+?>
+<li class="dropdown-list__item dropdown-list__item--collapse">
+    <button
+        class="dropdown-list__label"
+        aria-expanded="false"
+        aria-controls="dropdown-<?= $id; ?>"
+    >
+        <?= $question; ?>
+        <svg class="icon dropdown-list__icon" aria-hidden="true" role="img">
+            <use xlink:href="<?= $block->getViewFileUrl('images/icons-sprite.svg') ?>#angle-down"></use>
+        </svg>
+    </button>
+    <div id="dropdown-<?= $id; ?>" class="dropdown-list__content" aria-hidden="true">
+        <?=/* @noEscape */ $answer; ?>
+    </div>
+</li>

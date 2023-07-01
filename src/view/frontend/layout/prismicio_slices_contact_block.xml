@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="contact_block" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/contact.phtml">
+
+                <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="form" as="form"/>
+                <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="address" as="address"/>
+
+                <arguments>
+                    <argument name="reference" xsi:type="string">primary</argument>
+                    <argument name="viewModel" xsi:type="object">FalconMedia\Core\ViewModel\StoreInfo</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="contact_image.url" as="image_url"/>
+
+                <block class="Magento\Contact\Block\ContactForm"
+                       name="contact_form" template="Magento_Contact::form.phtml" />
+
+                <block class="Magento\Framework\View\Element\Template" template="FalconMedia_Core::cms/contact-address.phtml">
+                    <block class="Magento\Cms\Block\Block" name="block_address">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">contact_address</argument>
+                        </arguments>
+                    </block>
+                </block>
+        </block>
+    </body>
+</page>

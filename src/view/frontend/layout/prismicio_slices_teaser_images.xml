@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="teaser_images"
+               class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/teaser/wrapper.phtml"
+        >
+            <arguments>
+                <argument name="reference" xsi:type="string">primary</argument>
+            </arguments>
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="full_width" as="full_width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="text_position" as="text_position"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="background_color" as="background"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="text_color" as="color"/>
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="teaser_title" as="title"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\RichText" template="teaser_description" as="description"/>
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="button_link" as="url"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="button_label" as="button_text"/>
+
+            <block name="images" class="Elgentos\PrismicIO\Block\Container">
+                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/teaser/image.phtml">
+                    <block name="teaser_image_1.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_1.url" as="image_url_base"/>
+                    <block name="teaser_image_1.max-width_768px.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_1.max-width_768px.url" as="image_url_mobile"/>
+                </block>
+
+                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/teaser/image.phtml" after="image_1">
+                    <block name="teaser_image_2.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_2.url" as="image_url_base"/>
+                    <block name="teaser_image_2.max-width_768px.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_2.max-width_768px.url" as="image_url_mobile"/>
+                </block>
+
+                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/teaser/image.phtml" after="image_2">
+                    <block name="teaser_image_3.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_3.url" as="image_url_base"/>
+                    <block name="teaser_image_3.max-width_768px.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_3.max-width_768px.url" as="image_url_mobile"/>
+                </block>
+
+                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/teaser/image.phtml" after="image_3">
+                    <block name="teaser_image_4.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_4.url" as="image_url_base"/>
+                    <block name="teaser_image_4.max-width_768px.url" class="Elgentos\PrismicIO\Block\Dom\Raw" template="teaser_image_4.max-width_768px.url" as="image_url_mobile"/>
+                </block>
+            </block>
+
+        </block>
+    </body>
+</page>

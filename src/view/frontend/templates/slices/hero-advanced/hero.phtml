@@ -1,0 +1,36 @@
+<?php
+/*
+ * @var $block \Elgentos\PrismicIO\Block\Template
+ */
+?>
+
+
+<div class="hero__wrapper ">
+    <div class="hero__text container">
+        <h1 class="hero__text--heading--first">
+            <?= $escaper->escapeHtml($block->getChildHtml('hero_title')); ?>
+            <?php if ($block->getChildHtml('hero_title_colored')) : ?>
+                <span class="hero__text--color"><?= $escaper->escapeHtml($block->getChildHtml('hero_title_colored')); ?></span>
+            <?php endif; ?>
+        </h1>
+        <?php if ($block->getChildHtml('hero_description')) : ?>
+            <h4 class="hero__text--heading--second">
+                <?= $escaper->escapeHtml($block->getChildHtml('hero_description')); ?>
+            </h4>
+        <?php endif;?>
+        <?php if ($block->getChildHtml('hero_link')) : ?>
+        <a class="button button--icon-light" href="<?= $escaper->escapeUrl($block->getChildHtml('hero_link')); ?>" title="<?= $escaper->escapeHtml($block->getChildHtml('hero_button')); ?>">
+            <?= $escaper->escapeHtml($block->getChildHtml('hero_button')); ?>
+            <svg class="icon fill-light button__icon" role="img">
+                <title><?= $escaper->escapeHtml(__('angle-right')); ?></title>
+                <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg')); ?>#angle-right"></use>
+            </svg>
+        </a>
+        <?php endif;?>
+    </div>
+</div>
+<div class="hero__background">
+    <picture class="image">
+        <img src="<?= $escaper->escapeUrl($block->getChildHtml('hero_image')); ?>" />
+    </picture>
+</div>

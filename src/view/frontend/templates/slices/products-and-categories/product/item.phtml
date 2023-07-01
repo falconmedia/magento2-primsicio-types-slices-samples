@@ -1,0 +1,136 @@
+<?php
+use Elgentos\PrismicIO\Block\Template;
+use FalconMedia\PrismicIO\ViewModel\Product;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Product $productViewModel
+ * @var Escaper $escaper
+ */
+
+$productViewModel = $block->getData('viewModel');
+
+$_product         = $productViewModel->getProductBySku(trim($block->getChildHtml('sku')));
+$gridColumn       = 'col-md-' . $block->getChildHtml('grid');
+$backgroundColor  = $block->getChildHtml('background');
+
+$itemTitle        = $block->getChildHtml('title');
+$buttonText       = $block->getChildHtml('button');
+$itemImage        = $block->getChildHtml('image');
+$badgeText        = $block->getChildHtml('badge');
+$badgeColor       = $block->getChildHtml('badge_color');
+
+?>
+<?php if ($_product): ?>
+    <?php if ($badgeText): ?>
+        <div class="badge badge--<?= $badgeColor ?>">
+            <?= $badgeText ?>
+        </div>
+    <?php endif; ?>
+    <?php if ($itemImage): ?>
+        <img class="image lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+             data-src="<?= $itemImage; ?>"
+             alt="<?= $_product->getName(); ?>"
+             loading="lazy"
+        />
+    <?php else: ?>
+        <div class="catalog-item__image">
+            <a href="<?= $_product->getProductUrl(); ?>"
+               title="<?= $_product->getName(); ?>"
+            >
+                <?= $productViewModel->getImage($_product, 'category_page_grid')->toHtml(); ?>
+            </a>
+        </div>
+    <?php endif;?>
+
+    <div class="catalog-item__content">
+        <h2 class="catalog-item__title">
+            <a href="<?= $_product->getProductUrl(); ?>"
+               title="<?= $_product->getName(); ?>"
+               class="link"
+            >
+                <?= $_product->getName(); ?>
+            </a>
+        </h2>
+
+        <div class="catalog-item__price">
+            <?php $price             = $escaper->escapeHtml($_product->getPrice());
+                  $finalPrice        = $escaper->escapeHtml($_product->getFinalPrice());
+                  $displayPrice      = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($price, 2), true, false);
+                  $finalDisplayPrice = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($finalPrice, 2), true, false);
+            ?>
+            <?php if ($price == $finalPrice || $price === 0) : ?>
+
+                <div class="price">
+                    <span class="price__value price__value--special">
+                        <ins aria-label="<?= $finalPrice; ?>">
+                            <?= $finalPrice; ?>
+                        </ins>
+                    </span>
+                </div>
+
+            <?php elseif ($price > $finalPrice) : ?>
+                <div class="price">
+                    <span class="price__value price__value--special">
+                        <ins aria-label="On sale at: <?= $finalPrice; ?>">
+                            <?= $finalPrice; ?>
+                        </ins>
+                    </span>
+                    <span class="price__value price__value--old">
+                        <del aria-label="Price reduced from: <?= $price; ?>">
+                            <?= $price; ?>
+                        </del>
+                    </span>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="catalog-item__actions">
+            <?php if ($_product->isSalable()) : ?>
+                <?php $postParams = $productViewModel->getAddToCartPostParams($_product);?>
+                <form data-role="tocart-form"
+                      action="<?= $postParams['action'] ?>" method="post"
+                >
+                    <input type="hidden"
+                           name="product"
+                           value="<?= /* @noEscape */ $postParams['data']['product'] ?>"
+                    >
+                    <input type="hidden" name="uenc"
+                           value="<?= /* @noEscape */ $postParams['data']['uenc'] ?>"
+                    >
+                    <?= $block->getBlockHtml('formkey') ?>
+                    <button type="submit"
+                            class="button button--half-radius tocart <?= ($backgroundColor === 'red' ? 'button--secondary' : '')?>"
+                    >
+
+                        <svg class="icon icons__single-icon button__icon"
+                             role="img"
+                        >
+                            <title><?= $escaper->escapeHtml(__('Add To Cart')); ?></title>
+                            <use xlink:href="<?= $escaper->escapeUrl($block->getViewFileUrl('/images/icons-sprite.svg')); ?>#plus"></use>
+                        </svg>
+                    </button>
+                </form>
+                <script type="text/x-magento-init">
+                        {
+                            "[data-role=tocart-form], .form.map.checkout": {
+                                "catalogAddToCart": {
+                                    "product_sku": "<?= $escaper->escapeJs($_product->getSku()) ?>"
+                                }
+                            }
+                        }
+                    </script>
+            <?php else : ?>
+                <?php if ($_product->getIsSalable()): ?>
+                    <span class="catalog-list-item__stock-status catalog-list-item__stock-status--in-stock">
+                        <?= $escaper->escapeHtml(__('In stock')); ?>
+                    </span>
+                <?php else : ?>
+                    <span class="catalog-list-item__stock-status catalog-list-item__stock-status--out-of-stock">
+                        <?= $escaper->escapeHtml(__('Out of stock')); ?>
+                    </span>
+                <?php endif; ?>
+            <?php endif ?>
+        </div>
+    </div>
+<?php endif;?>

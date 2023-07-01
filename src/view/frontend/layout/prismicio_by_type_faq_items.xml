@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="prismicio_slices_general_card" />
+    <update handle="prismicio_slices_faq_section" />
+
+    <body>
+
+        <referenceBlock remove="true" name="page.main.title" />
+        <referenceBlock remove="true" name="header.background" />
+
+        <referenceContainer name="main.content" htmlClass="content-container" />
+        <referenceContainer name="columns" htmlClass="columns containermt-1 width-full" />
+
+        <referenceContainer name="header.breadcrumbs.title">
+            <block name="falcon.block.hero-data" class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::modules/prismic.header.phtml">
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+                <block name="prismicio.header" class="Elgentos\PrismicIO\Block\Slices" template="body" />
+            </block>
+        </referenceContainer>
+        <referenceContainer name="div.seo.main">
+            <block name="falcon.block.seo-data" class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::modules/prismic.seo.phtml">
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+
+                <block name="prismicio.seo" class="Elgentos\PrismicIO\Block\Slices" template="body2">
+                    <action method="append">
+                        <argument name="element" xsi:type="string">general_card</argument>
+                        <argument name="alias" xsi:type="string">prismicio.seo.general_card</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block name="falcon.block.content-data" class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::components/type/faq-items/prismic.content.phtml">
+                <arguments>
+                    <argument name="reference" xsi:type="string">data</argument>
+                </arguments>
+                <block name="prismicio.faq_items.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                    <action method="append">
+                        <argument name="element" xsi:type="string">faq_section</argument>
+                        <argument name="alias" xsi:type="string">prismicio.faq_items.body.faq_section</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock remove="true" name="page.main.title" />
+
+    </body>
+</page>

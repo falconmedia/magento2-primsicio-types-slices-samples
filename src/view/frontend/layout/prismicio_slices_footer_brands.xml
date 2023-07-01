@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="footer_brands" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/footer/brands/wrapper.phtml">
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.desktop_items" as="desktop"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.tablet_items" as="tablet"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.mobile_items" as="mobile"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.title.0.text" as="heading"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/footer/brands/item.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="logo.url" as="image"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="title.0.text" as="title" />
+                    <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link" as="link" />
+                </block>
+            </block>
+        </block>
+
+    </body>
+</page>

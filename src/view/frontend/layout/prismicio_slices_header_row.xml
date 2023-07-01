@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="prismicio_slices_header_logo" />
+    <update handle="prismicio_slices_header_contact_bar" />
+    <update handle="prismicio_slices_header_menu" />
+    <update handle="prismicio_slices_header_socials" />
+    <update handle="prismicio_slices_header_store" />
+    <update handle="prismicio_slices_header_keurmerk" />
+
+    <body>
+        <block name="header_row" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/header/row/wrapper.phtml">
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/header/row/type.phtml">
+
+                    <block template="item.type" as="type"
+                           class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                    <block template="column_width" as="width"
+                           class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                    <block template="background_color" as="background_color"
+                           class="Elgentos\PrismicIO\Block\Dom\Raw" />
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="header_row">
+                        <arguments>
+                            <argument xsi:type="string" name="reference">item</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::components/slice/header/row/item.phtml">
+                            <block template="row_style" as="style"
+                                   class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                            <block template="background_color" as="background_color"
+                                   class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                            <block template="text_color" as="text_color"
+                                   class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block name="prismicio.header2.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                                <container name="header2.body" htmlClass="header" htmlTag="div" />
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">header_logo</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.header2.body.header_logo</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">header_contact_bar</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.header2.body.header_contact_bar</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">header_menu</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.header2.body.header_menu</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">header_socials</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.header2.body.header_socials</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">header_store</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.header2.body.header_store</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">header_keurmerk</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.header2.body.header_keurmerk</argument>
+                                </action>
+                            </block>
+                        </block>
+                    </block>
+                </block>
+
+            </block>
+        </block>
+    </body>
+</page>

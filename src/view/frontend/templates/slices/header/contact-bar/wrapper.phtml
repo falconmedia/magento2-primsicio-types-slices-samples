@@ -1,0 +1,41 @@
+<?php declare(strict_types=1);
+
+/**
+ * Copyright © Falcon Media. All rights reserved.
+ * https://www.falconmedia.nl
+ */
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ *
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$width    = str_replace('/12', '', $block->getChildHtml('width'));
+$bg       = $escaper->escapeHtml($block->getChildHtml('background'));
+
+?>
+<div class="display-none-l width-full bg-<?= ($bg ?: 'transparent'); ?>">
+    <div class="container">
+        <ul class="list--horizontal width-full justify-between p-0 m-0">
+            <?=/* @noEscape */ $block->getChildHtml('items') ?>
+        </ul>
+    </div>
+</div>
+
+<div class="display-none-desktop width-full bg-<?= ($bg ?: 'transparent'); ?>">
+    <ul class="header-usps__slider width-full padding-0 m-0">
+        <?=/* @noEscape */ $block->getChildHtml('items') ?>
+    </ul>
+</div>
+
+<script type="text/x-magento-init">
+	{
+	    "*": {
+	        "Elgentos_PrismicIO/js/usps-top": {}
+	    }
+	}
+</script>

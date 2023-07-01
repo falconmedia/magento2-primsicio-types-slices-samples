@@ -1,0 +1,25 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$link   = $block->getChildHtml('link');
+$slug   = $block->getChildHtml('slug');
+$title  = $block->getChildHtml('title');
+
+?>
+
+<li class="list__item">
+    <a href="<?= $escaper->escapeUrl($link); ?>" class="list__item--link footer__link">
+        <?php if ($escaper->escapeHtml($title)) : ?>
+            <?= $escaper->escapeHtml($title); ?>
+        <?php else : ?>
+            <?= str_replace('-', ' ',$slug); ?>
+        <?php endif; ?>
+    </a>
+</li>

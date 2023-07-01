@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="seo_text"
+               class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/seo-text.phtml"
+        >
+            <block name="seotext" class="Elgentos\PrismicIO\Block\Dom\RichText" template="primary.seo_text"/>
+
+        </block>
+    </body>
+</page>

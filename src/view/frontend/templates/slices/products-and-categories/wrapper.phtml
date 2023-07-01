@@ -1,0 +1,43 @@
+<?php
+
+use Elgentos\PrismicIO\Block\Template;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ * @var HeroiconsOutline $heroicons
+ */
+
+$heroicons       = $viewModels->require(\Hyva\Theme\ViewModel\HeroiconsOutline::class);
+$context         = $block->getContext();
+$rowStyle        = $escaper->escapeHtml($block->getChildHtml('row_style'));
+$sliderEnabled   = $escaper->escapeHtml($block->getChildHtml('slider'));
+$heading         = $escaper->escapeHtml($block->getChildHtml('heading'));
+
+?>
+
+<div class="<?= ($rowStyle ? 'section-full-width': 'container'); ?>">
+    <div class="<?= ($sliderEnabled ? 'slider slider--responsive js-slider': ''); ?>" <?= ($sliderEnabled ? 'data-mage-init=\'{ "product-slider": {} }\'': ''); ?>>
+        <?php if ($sliderEnabled) : ?>
+            <div class="slider__button slider__button--left js-slider-control js-left">
+                <?= $heroicons->chevronLeftHtml('w-4 h-4') ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if (!$sliderEnabled && $heading) : ?>
+            <h2 class="category-item__title"><?= $heading ?></h2>
+        <?php endif; ?>
+
+        <div class="<?= ($sliderEnabled ? 'slider__inner js-slider-area': 'flex flex-wrap')?> ">
+            <?= $block->getChildHtml('items') ?>
+        </div>
+
+        <?php if ($sliderEnabled) : ?>
+            <div class="slider__button slider__button--right js-slider-control js-right">
+                <?= $heroicons->chevronRightHtml('w-4 h-4') ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

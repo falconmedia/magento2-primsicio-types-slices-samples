@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="action_blocks" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::modules/action-blocks.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider" as="slider"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::modules/action-type.phtml">
+
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="action_item.type" as="type"/>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="action_block">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">action_item</argument>
+                        </arguments>
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::elements/action-block.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="image.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title" as="title" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link" as="url" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="tag" as="tagline" />
+                        </block>
+                    </block>
+                </block>
+            </block>
+
+        </block>
+
+    </body>
+</page>

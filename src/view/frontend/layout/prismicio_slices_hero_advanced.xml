@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="hero_advanced" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/hero-advanced/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.background_color" as="background"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.row_style" as="full_width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.hero_type" as="slider"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider_autoplay" as="autoplay"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider_autoplay_speed" as="autoplay_speed"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider_nav" as="slider_nav"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider_bullets" as="slider_bullets"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider_fade" as="fade"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/hero-advanced/type.phtml">
+
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="hero_item.type" as="type"/>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="hero">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">hero_item</argument>
+                        </arguments>
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                                   template="Elgentos_PrismicIO::components/slice/hero-advanced/hero.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="hero_image.url" as="hero_image" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="hero_title" as="hero_title" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="hero_title_colored" as="hero_title_colored" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text" template="hero_description" as="hero_description" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="hero_link" as="hero_link" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="hero_label" as="hero_button" />
+                        </block>
+                    </block>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="hero_multi">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">hero_item</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::components/slice/hero-advanced/hero-3cols.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="hero_image1.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="hero_link1" as="url" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="hero_label1" as="label" />
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="hero_image2.url" as="image2"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="hero_link2" as="url2" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="hero_label2" as="label2" />
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="hero_image3.url" as="image3"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="hero_link3" as="url3" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="hero_label3" as="label3" />
+                        </block>
+                    </block>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="hero_2col">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">hero_item</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::components/slice/hero-advanced/hero-2cols.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="hero_image1.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link1" as="url" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="label1" as="label" />
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="hero_image2.url" as="image2"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link2" as="url2" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="label2" as="label2" />
+
+                        </block>
+                    </block>
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="hero_13">
+                        <arguments>
+                            <argument name="reference" xsi:type="string">hero_item</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::components/slice/hero-advanced/hero-13/item.phtml">
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="image_large.url" as="image"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="color" as="color"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="text_align" as="text_align"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain"  template="titel_large.0.text" as="title"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Text"  template="description" as="description"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link_large" as="url" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="button_large" as="label" />
+
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="image_1.url" as="image_1"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="title_1.0.text" as="title_1" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link_1" as="url_1" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="button_1" as="label_1" />
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="image_2.url" as="image_2"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="title_2.0.text" as="title_2" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link_2" as="url_2" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="button_2" as="label_2" />
+
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="image_3.url" as="image_3"/>
+                            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="title_3.0.text" as="title_3" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link_3" as="url_3" />
+                            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="button_3" as="label_3" />
+
+
+                        </block>
+
+                    </block>
+                </block>
+            </block>
+        </block>
+
+    </body>
+</page>

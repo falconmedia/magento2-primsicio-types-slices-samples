@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="prismicio_slices_footer_brands" />
+    <update handle="prismicio_slices_footer_logo" />
+    <update handle="prismicio_slices_footer_reviews" />
+    <update handle="prismicio_slices_footer_contact_bar" />
+    <update handle="prismicio_slices_footer_menu" />
+    <update handle="prismicio_slices_footer_newsletter" />
+    <update handle="prismicio_slices_footer_socials" />
+    <update handle="prismicio_slices_footer_payments" />
+    <update handle="prismicio_slices_footer_store" />
+    <update handle="prismicio_slices_footer_stores_blocks" />
+    <update handle="prismicio_slices_footer_absolute" />
+    <update handle="prismicio_slices_footer_image_with_caption" />
+    <update handle="prismicio_slices_footer_keurmerk" />
+
+    <body>
+        <block name="footer_row" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/footer/row/wrapper.phtml">
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/footer/row/type.phtml">
+
+                    <block template="item.type" as="type"
+                           class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                    <block template="column_width" as="width"
+                           class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                    <block template="background_color" as="background_color"
+                           class="Elgentos\PrismicIO\Block\Dom\Raw" />
+
+                    <block class="Elgentos\PrismicIO\Block\Document" as="footer_row">
+                        <arguments>
+                            <argument xsi:type="string" name="reference">item</argument>
+                        </arguments>
+
+                        <block class="Elgentos\PrismicIO\Block\Template"
+                               template="Elgentos_PrismicIO::components/slice/footer/row/item.phtml">
+                            <block template="row_style" as="style"
+                                   class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                            <block template="background_color" as="background_color"
+                                   class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                            <block template="text_color" as="text_color"
+                                   class="Elgentos\PrismicIO\Block\Dom\Raw" />
+                            <arguments>
+                                <argument name="reference" xsi:type="string">data</argument>
+                            </arguments>
+
+                            <block name="prismicio.footer2.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                                <container name="footer2.body" htmlClass="footer" htmlTag="div" />
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_image_with_caption</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_image_with_caption</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_brands</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_brands</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_logo</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_logo</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_reviews</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.reviews</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_contact_bar</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_contact_bar</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_menu</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_menu</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_newsletter</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_newsletter</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_socials</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_socials</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_payments</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_payments</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_store</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_store</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_stores_blocks</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_stores_blocks</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_absolute</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_absolute</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_image_with_caption</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_image_with_caption</argument>
+                                </action>
+                                <action method="append">
+                                    <argument name="element" xsi:type="string">footer_keurmerk</argument>
+                                    <argument name="alias" xsi:type="string">prismicio.footer2.body.footer_keurmerk</argument>
+                                </action>
+                            </block>
+                        </block>
+                    </block>
+                </block>
+
+            </block>
+        </block>
+    </body>
+</page>

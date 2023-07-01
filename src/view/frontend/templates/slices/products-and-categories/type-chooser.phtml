@@ -1,0 +1,31 @@
+<?php
+
+use Elgentos\PrismicIO\Block\Template;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ * @var HeroiconsOutline $heroicons
+ */
+
+$gridColumn = $block->getChildHtml('grid') . '/12';
+$backgroundColor = $block->getChildHtml('background');
+$type = $block->getChildHtml('type');
+
+$class = ($type === "product" ? 'catalog-item' : 'category-item');
+
+$badge = $block->getChildHtml('category_badge');
+
+?>
+<div class="w-<?= $gridColumn; ?> basis-<?= $gridColumn; ?> mb-4">
+    <div class="<?= $class ?> flex shadow-xl mx-2 h-full rounded-lg bg-<?= ($backgroundColor == 'red' ? 'red-600' : $backgroundColor) ?> <?= ($badge ? 'category-item--badged' : '')?>">
+        <?php if ($type !== 'product' && $badge) { ?>
+            <div class="badge badge--top-centered">
+                <span class="badge__text"><?= $badge ?></span>
+            </div>
+        <?php } ?>
+        <?= $block->getChildHtml($type) ?>
+    </div>
+</div>

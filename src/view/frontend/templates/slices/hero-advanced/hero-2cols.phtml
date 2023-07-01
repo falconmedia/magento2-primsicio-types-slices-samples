@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="hero--advanced__row first-row col-md-8 col-xs-12 mt-m__max-m">
+        <div class="hero--advanced__item first-row__item">
+            <a href="<?=  $escaper->escapeUrl($block->getChildHtml('url')); ?>" title="<?= $escaper->escapeHtml($block->getChildHtml('label2')); ?>">
+                <picture class="image">
+                    <img src="<?= $escaper->escapeUrl($block->getChildHtml('image')); ?>">
+                </picture>
+            </a>
+        </div>
+    </div>
+    <div class="hero--advanced__row second-row col-md-4 col-xs-12 mt-m__max-m">
+        <div class="hero--advanced__item second-row__item">
+            <a href="<?=  $escaper->escapeUrl($block->getChildHtml('url2')); ?>" title="<?= $escaper->escapeHtml($block->getChildHtml('label2')); ?>">
+                <picture class="image">
+                    <img src="<?= $escaper->escapeUrl($block->getChildHtml('image2')); ?>">
+                </picture>
+            </a>
+        </div>
+    </div>
+</div>

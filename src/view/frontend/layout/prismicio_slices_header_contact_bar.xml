@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <block name="header_contact_bar" class="Elgentos\PrismicIO\Block\Template"
+               template="Elgentos_PrismicIO::components/slice/header/contact-bar/wrapper.phtml">
+
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.background_color" as="background"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
+
+            <block as="items" class="Elgentos\PrismicIO\Block\Group">
+                <arguments>
+                    <argument name="reference" xsi:type="string">items</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Template"
+                       template="Elgentos_PrismicIO::components/slice/header/contact-bar/item.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="text_color" as="color"/>
+                    <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title" as="title" />
+                    <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link" as="link" />
+                    <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="icon" as="icon" />
+                </block>
+            </block>
+        </block>
+    </body>
+</page>

@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+?>
+
+<div class="action-block__inner width-full">
+    <div class="flex--column relative">
+        <div class="action-block__image">
+            <img src="<?= $escaper->escapeUrl($block->getChildHtml('image')); ?>" />
+        </div>
+        <div class="action-block__content text-left pt-xs">
+            <span class="action-block__tagline uppercase size-s"><?= $escaper->escapeHtml($block->getChildHtml('tagline')); ?></span>
+            <h3 class="action-block__title normal-case "><?= $escaper->escapeHtml($block->getChildHtml('title')); ?></h3>
+        </div>
+    </div>
+</div>

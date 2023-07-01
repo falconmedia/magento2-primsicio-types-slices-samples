@@ -1,0 +1,46 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ *
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$headingOne  = $escaper->escapeHtml($block->getChildHtml('heading'));
+$headingTwo  = $escaper->escapeHtml($block->getChildHtml('heading_two'));
+$description = $block->getChildHtml('description');
+$image       = $escaper->escapeUrl($block->getChildHtml('image'));
+$buttonLink  = $escaper->escapeUrl($block->getChildHtml('button_link'));
+$buttonLabel = $escaper->escapeHtml($block->getChildHtml('button_label'));
+$background  = $escaper->escapeHtml($block->getChildHtml('background'));
+$color       = $escaper->escapeHtml($block->getChildHtml('color'));
+$width       = str_replace('/12', '', $block->getChildHtml('width'));
+?>
+
+<section class="footer__banner mb-l">
+    <div class="wrapper">
+        <div class="footer__banner--text">
+            <div class="footer__banner--text--left">
+                <h3 class="footer__banner--text--heading--first">
+                    <span class="color--<?= $color ?>"><?= $headingOne ?></span>
+                    <span class="footer__banner--text--color color--<?= $color ?>"><?= $headingTwo ?> </span>
+                </h3>
+            </div>
+            <div class="footer__banner--text--right">
+                <div class="footer__banner--text--description">
+                    <span class="color--<?= $color ?>"><?= /* @noEscape */ $description ?></span>
+                </div>
+                <a href="<?= $buttonLink ?>" class="button button--skew color--<?= $color ?>"><?= $buttonLabel ?></a>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer__banner--background">
+        <picture class="image ">
+            <img src="<?= $image ?>">
+        </picture>
+    </div>
+</section>

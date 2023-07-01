@@ -1,0 +1,82 @@
+<?php
+/**
+ * @var $block Elgentos\PrismicIO\Block\Template
+ */
+
+$context = $block->getContext();
+$style = $block->getChildHtml('block_style');
+$heading = $block->getChildHtml('heading');
+$sliderHtml = $block->getChildHtml('slider');
+$scroll = $block->getChildHtml('scroll');
+$arrows = $block->getChildHtml('arrows');
+$dots = $block->getChildHtml('dots');
+$showDesktop = $block->getChildHtml('show');
+$showTablet = $block->getChildHtml('breakpoint_ipad_show');
+$showMobile = $block->getChildHtml('breakpoint_mobile_show');
+if ($sliderHtml) {
+    $slider_id = uniqid();
+}
+?>
+
+<section class="bg-white py-l sm-py-m">
+    <div class="<?= ($escaper->escapeHtml($style) ? 'fullpage' : 'container')?>">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto py-8 sm:py-12 lg:py-16 lg:max-w-none">
+                <?php if ($heading) : ?>
+                    <div class="mb-l">
+                        <h3 class="size-l weight-900 color-gray-darkest">
+                        <?= $escaper->escapeHtml($block->getChildHtml('heading')); ?>
+                        </h3>
+                    </div>
+                <?php endif; ?>
+
+                <div class="<?= ($escaper->escapeHtml($sliderHtml) ? 'section__content categories-sliderhtml sliderhtml-'.$escaper->escapeHtml($slider_id) : 'section__content row')?> ">
+                    <?=/* @noEscape */  $block->getChildHtml('items') ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php if ($sliderHtml) : ?>
+    <script>
+        // <![CDATA[
+        require([
+            'jquery',
+            'domReady',
+            'slick',
+        ], function ($) {
+            $(".sliderhtml-<?= $escaper->escapeHtml($slider_id); ?>").slick({
+                dots: <?= $escaper->escapeHtml($dots); ?>,
+                infinite: true,
+                speed: 300,
+                navArrows: <?= $escaper->escapeHtml($arrows); ?>,
+                slidesToShow: <?= $escaper->escapeHtml($showDesktop); ?>,
+                slidesToScroll: <?= ($escaper->escapeHtml($scroll) ? 1 : $escaper->escapeHtml($showDesktop)) ?>,
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: <?= $escaper->escapeHtml($showDesktop); ?>,
+                            slidesToScroll: <?= ($escaper->escapeHtml($scroll) ? 1 : $escaper->escapeHtml($showDesktop)) ?>
+                        }
+                    },
+                    {
+                        breakpoint: 769,
+                        settings: {
+                            slidesToShow: <?= $escaper->escapeHtml($showTablet); ?>,
+                            slidesToScroll: <?= ($escaper->escapeHtml($scroll) ? 1 : $escaper->escapeHtml($showTablet)) ?>
+                        }
+                    },
+                    {
+                        breakpoint: 540,
+                        settings: {
+                            slidesToShow: <?= $escaper->escapeHtml($showMobile); ?>,
+                            slidesToScroll: <?= ($escaper->escapeHtml($scroll) ? 1 : $escaper->escapeHtml($showMobile)) ?>
+                        }
+                    }
+                ]
+            });
+        });
+        // ]]>
+    </script>
+<?php endif; ?>

@@ -1,0 +1,25 @@
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$row         = $escaper->escapeHtml($block->getChildHtml('width'));
+$title       = $escaper->escapeHtml($block->getChildHtml('title'));
+$description = $block->getChildHtml('description');
+$formId      = $block->getChildHtml('id');
+
+?>
+<section class="<?= ($row ? 'width-full': 'container'); ?>">
+    <h3><?= $title; ?></h3>
+
+    <?=/* @noEscape */ $description; ?>
+
+    <div class="form">
+        <?= $this->helper("Amasty\Customform\Helper\Data")->renderForm(intval($formId)) ?>
+    </div>
+</section>

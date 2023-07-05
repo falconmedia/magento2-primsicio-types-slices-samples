@@ -47,6 +47,7 @@
 
         <move element="prismicio.slices" destination="content" after="-" />
         <referenceBlock remove="true" name="breadcrumbs" />
+        <referenceBlock remove="true" name="page.title" />
 
     </body>
 </page>

@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_brands" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/brands/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/brands/wrapper.phtml">
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.desktop_items" as="desktop"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.tablet_items" as="tablet"/>
@@ -17,7 +17,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/footer/brands/item.phtml">
+                       template="Elgentos_PrismicIO::slices/footer/brands/item.phtml">
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="logo.url" as="image"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="title.0.text" as="title" />
                     <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link" as="link" />

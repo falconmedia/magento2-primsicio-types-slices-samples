@@ -6,7 +6,7 @@
 
         </referenceContainer>
         <block name="amasty_form" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/amasty-form/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/amasty-form/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Text" template="primary.form_title" as="title" />

@@ -1,1 +1,13 @@
-<?= $block->getChildHtml('category.content') ?>
+<?php declare(strict_types=1);
+
+/**
+ * @var $escaper Escaper
+ * @var $block Template
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+?>
+
+<?=/* @noEscape */ $block->getChildHtml('category.content') ?>

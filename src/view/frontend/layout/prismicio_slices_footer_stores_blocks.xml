@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_stores_blocks" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/stores-blocks/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/stores-blocks/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.background_color" as="background"/>
@@ -15,7 +15,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/footer/stores-blocks/type.phtml">
+                       template="Elgentos_PrismicIO::slices/footer/stores-blocks/type.phtml">
                     <block class="Elgentos\PrismicIO\Block\Dom\Link" template="store_item" as="url"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="store_item.type" as="type"/>
 

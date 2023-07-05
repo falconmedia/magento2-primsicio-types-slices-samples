@@ -1,12 +1,16 @@
 <?php
-/** @var StoreInfo $storeInfo */
+/**
+ * @var $escaper Escaper
+ * @var $storeInfo StoreInfo
+ */
 
+use Magento\Framework\Escaper;
 use FalconMedia\Core\ViewModel\StoreInfo;
 
 $storeInfo = $block->getData('storeInfo');
 ?>
 <div class="contact-us__address">
-    <h2 class="contact-us__heading"><?= $escaper->escapeHtml(__('Warehouse & office address!')); ?></h2>
+    <h2 class="contact-us__heading"><?= $escaper->escapeHtml(__('Warehouse & Office address!')); ?></h2>
 
     <p class="contact-us__address-item">
         <span class="icon contact-information--mail__icon" aria-label="">

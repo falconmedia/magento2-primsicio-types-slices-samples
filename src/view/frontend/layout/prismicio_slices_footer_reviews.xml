@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_reviews" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/reviews/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/reviews/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.enable" as="is_enable"/>

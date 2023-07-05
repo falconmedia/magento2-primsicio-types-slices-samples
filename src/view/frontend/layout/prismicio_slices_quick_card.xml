@@ -4,7 +4,7 @@
     <body>
 
         <block name="quick_card" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/quick-card/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/quick-card/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.slider" as="slider"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.full_width" as="full_width"/>
@@ -17,7 +17,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/quick-card/item.phtml">
+                       template="Elgentos_PrismicIO::slices/quick-card/item.phtml">
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="background_color" as="bgc"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="hover_bgc" as="hover_bgc"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="text_color" as="color"/>

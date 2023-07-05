@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <block name="menu_items" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/menu-items/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/menu-items/wrapper.phtml">
 
             <!-- TODO:  implement menu_title -->
             <block class="Elgentos\PrismicIO\Block\Dom\RichText" template="primary.menu_title" as="heading"/>
@@ -14,7 +14,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Document" template="menu_items">
-                    <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::components/slice/menu-items/item.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::slices/menu-items/item.phtml">
                         <arguments>
                             <argument name="reference" xsi:type="string">data</argument>
                         </arguments>

@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_image_with_caption" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/image-with-caption/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/image-with-caption/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.background_color" as="background"/>

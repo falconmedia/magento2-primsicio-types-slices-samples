@@ -1,6 +1,13 @@
 <?php
-/*
- * @var $block \Elgentos\PrismicIO\Block\Template
+
+/**
+ * @var $escaper Escaper
+ * @var $block Template
  */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
 ?>
+
 <?=/* @noEscape */ $block->getChildHtml('general_card'); ?>

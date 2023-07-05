@@ -1,9 +1,13 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
- * @var $block Elgentos\PrismicIO\Block\Template
+ * @var $block Template
+ * @var $escaper Escaper
  */
 
-$context = $block->getContext();
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
 ?>
 
-<?= $block->getChildHtml('items') ?>
+<?=/* @noEscape */ $block->getChildHtml('items') ?>

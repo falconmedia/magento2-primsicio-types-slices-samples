@@ -1,23 +1,6 @@
 <?xml version="1.0" ?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <update handle="prismicio_slices_divider" />
-    <update handle="prismicio_slices_action_blocks" />
-    <update handle="prismicio_slices_banner_with_caption" />
-    <update handle="prismicio_slices_categories" />
-    <update handle="prismicio_slices_category_content" />
-    <update handle="prismicio_slices_diy" />
-    <update handle="prismicio_slices_image" />
-    <update handle="prismicio_slices_faq_items" />
-    <update handle="prismicio_slices_general_card" />
-    <!--<update handle="prismicio_slices_hero" />-->
-    <update handle="prismicio_slices_hero_advanced" />
-    <update handle="prismicio_slices_products" />
-    <update handle="prismicio_slices_product_collection" />
-    <update handle="prismicio_slices_quick_card" />
-    <update handle="prismicio_slices_seo_text" />
-    <update handle="prismicio_slices_stores" />
-    <update handle="prismicio_slices_teaser_images" />
-    <update handle="prismicio_slices_usps_horizontal" />
+    <update handle="prismicio_slices" />
 
     <body>
 
@@ -25,24 +8,29 @@
         <referenceContainer name="columns" htmlClass="home" />
 
         <referenceContainer name="header.breadcrumbs.title">
-            <block name="block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml">
+            <block name="block.hero-data"
+                   class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::modules/prismic.header.phtml"
+            >
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
-
-                <block name="prismicio.header" class="Elgentos\PrismicIO\Block\Slices" template="body">
-
-                </block>
             </block>
         </referenceContainer>
 
         <referenceContainer name="div.seo.main">
-            <block name="block.seo-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.seo.phtml">
+            <block name="block.seo-data"
+                   class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::modules/prismic.seo.phtml"
+            >
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
 
-                <block name="prismicio.seo" class="Elgentos\PrismicIO\Block\Slices" template="body2">
+                <block name="prismicio.seo"
+                       class="Elgentos\PrismicIO\Block\Slices"
+                       template="body2"
+                >
                     <action method="append">
                         <argument name="element" xsi:type="string">general_card</argument>
                         <argument name="alias" xsi:type="string">prismicio.seo.general_card</argument>
@@ -52,91 +40,14 @@
         </referenceContainer>
 
         <referenceContainer name="content">
-            <block name="block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::types/homepage/prismic.content.phtml">
-                <arguments>
-                    <argument name="reference" xsi:type="string">data</argument>
-                </arguments>
-
-                <block name="prismicio.homepage.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
-                    <action method="append">
-                        <argument name="element" xsi:type="string">hero_advanced</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.hero_advanced</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">usps_horizontal</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.usps_horizontal</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">action_blocks</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.action_blocks</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">diy</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.diy</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">teaser_images</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.teaser_images</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">divider</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.divider</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">banner_with_caption</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.banner_with_caption</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">image</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.image</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">categories</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.categories</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">product_collection</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.product_collection</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">products</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.products</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">seo_text</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.seo_text</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">quick_card</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.quick_card</argument>
-                    </action>
-                    <action method="append">
-                        <argument name="element" xsi:type="string">stores</argument>
-                        <argument name="alias" xsi:type="string">prismicio.homepage.body.stores</argument>
-                    </action>
-                </block>
-
-                <block class="Elgentos\PrismicIO\Block\Container" name="prismicio.homepage.body.faq_items">
-                    <arguments>
-                        <argument name="htmlClass" xsi:type="string">container</argument>
-                        <argument name="htmlTag" xsi:type="string">div</argument>
-                    </arguments>
-
-                    <block class="Elgentos\PrismicIO\Block\Container">
-                        <arguments>
-                            <argument name="htmlClass" xsi:type="string">row faq-items</argument>
-                            <argument name="htmlTag" xsi:type="string">div</argument>
-                        </arguments>
-                        <action method="append">
-                            <argument name="element" xsi:type="string">faq_items</argument>
-                        </action>
-                    </block>
-                </block>
-            </block>
+            <block name="block.content-data"
+                   class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::types/homepage/prismic.slices.phtml"/>
         </referenceContainer>
 
+        <move element="prismicio.slices" destination="content" after="-" />
         <referenceBlock remove="true" name="breadcrumbs" />
-<!--        <referenceBlock remove="true" name="page.main.title" />-->
+        <referenceBlock remove="true" name="page.title" />
 
     </body>
 </page>

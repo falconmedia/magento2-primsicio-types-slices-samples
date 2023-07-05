@@ -24,7 +24,7 @@
         <referenceContainer name="columns" htmlClass="page" />
 
         <referenceContainer name="header.breadcrumbs.title">
-            <block name="falcon.block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml" after="-">
+            <block name="block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml" after="-">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
@@ -39,7 +39,7 @@
         </referenceContainer>
 
         <referenceContainer name="div.seo.main">
-            <block name="falcon.block.seo-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.seo.phtml">
+            <block name="block.seo-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.seo.phtml">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
@@ -52,24 +52,9 @@
                 </block>
             </block>
         </referenceContainer>
-<!--        <referenceContainer name="div.sidebar.main">-->
-<!--            <block name="falcon.block.page.sidebar" class="Elgentos\PrismicIO\Block\Template"-->
-<!--                   template="Elgentos_PrismicIO::modules/prismic.sidebar.phtml">-->
-<!--                <arguments>-->
-<!--                    <argument name="reference" xsi:type="string">data</argument>-->
-<!--                </arguments>-->
-
-<!--                <block name="prismicio.sidebar" class="Elgentos\PrismicIO\Block\Slices" template="body1">-->
-<!--                    <action method="append">-->
-<!--                        <argument name="element" xsi:type="string">faq_items</argument>-->
-<!--                        <argument name="alias" xsi:type="string">prismicio.sidebar.faq_items</argument>-->
-<!--                    </action>-->
-<!--                </block>-->
-<!--            </block>-->
-<!--        </referenceContainer>-->
 
          <referenceContainer name="content">
-            <block name="falcon.block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::types/page/prismic.content.phtml">
+            <block name="block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::types/page/prismic.content.phtml">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
@@ -111,7 +96,7 @@
         </referenceContainer>
 
 
-<!--        <move element="breadcrumbs" destination="falcon.block.hero-data" before="-" />-->
+<!--        <move element="breadcrumbs" destination="block.hero-data" before="-" />-->
 <!--        <move element="div.sidebar.main" destination="columns" before="main"/>-->
         <move element="div.seo.main" destination="head.additional" before="main"/>
 

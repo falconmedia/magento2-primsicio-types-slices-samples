@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_payments" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/payments/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/payments/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
 
@@ -14,7 +14,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/footer/payments/item.phtml">
+                       template="Elgentos_PrismicIO::slices/footer/payments/item.phtml">
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="type" as="type"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="icon" as="icon" />
                 </block>

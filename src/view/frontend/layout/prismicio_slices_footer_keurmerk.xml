@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_keurmerk" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/keurmerk/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/keurmerk/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
 

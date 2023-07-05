@@ -1,6 +1,12 @@
 <?php declare(strict_types=1);
 
-/** @var $block \Elgentos\PrismicIO\Block\Template */
+/**
+ * @var $escaper Escaper
+ * @var $block Template
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
 
 $context = $block->getContext();
 //$fullWidth = ($context->full_width ? true : false);

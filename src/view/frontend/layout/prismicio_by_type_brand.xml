@@ -20,7 +20,7 @@
 
 
         <referenceContainer name="header.breadcrumbs.title">
-            <block name="falcon.block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml" after="-">
+            <block name="block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml" after="-">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
@@ -39,7 +39,7 @@
         </referenceContainer>
 
         <referenceContainer name="content">
-            <block name="falcon.block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::brand/prismic.content.phtml">
+            <block name="block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::brand/prismic.content.phtml">
 
                 <block name="prismicio_page_title" class="Elgentos\PrismicIO\Block\Layout\PageTitle">
                     <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.meta_title" />
@@ -116,7 +116,7 @@
             </action>
         </referenceBlock>
 
-        <move element="breadcrumbs" destination="falcon.block.hero-data" before="-" />
+        <move element="breadcrumbs" destination="block.hero-data" before="-" />
 <!--        <move element="div.sidebar.main" destination="columns" before="main"/>-->
         <move element="div.seo.main" destination="head.additional" before="main"/>
 

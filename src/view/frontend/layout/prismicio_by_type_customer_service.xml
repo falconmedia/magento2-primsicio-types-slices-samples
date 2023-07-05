@@ -28,7 +28,7 @@
         <referenceContainer name="columns" htmlClass="columns container m-t--1" />
 
         <referenceContainer name="header.breadcrumbs.title">
-            <block name="falcon.block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml">
+            <block name="block.hero-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.header.phtml">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
@@ -46,7 +46,7 @@
             </block>
         </referenceContainer>
         <referenceContainer name="div.sidebar.main">
-            <block name="falcon.block.customer_service.sidebar" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.sidebar.phtml">
+            <block name="block.customer_service.sidebar" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::modules/prismic.sidebar.phtml">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
                 </arguments>
@@ -61,7 +61,7 @@
             </block>
         </referenceContainer>
         <referenceContainer name="content">
-            <block name="falcon.block.content-data" class="Elgentos\PrismicIO\Block\Wrapper" template="Elgentos_PrismicIO::components/type/customer-service/prismic.content.phtml">
+            <block name="block.content-data" class="Elgentos\PrismicIO\Block\Wrapper" template="Elgentos_PrismicIO::components/type/customer-service/prismic.content.phtml">
 
                 <block name="prismicio_page_title" class="Elgentos\PrismicIO\Block\Layout\PageTitle">
                     <block class="Elgentos\PrismicIO\Block\Dom\Text" template="data.title" />

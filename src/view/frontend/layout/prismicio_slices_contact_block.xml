@@ -18,7 +18,7 @@
                 <block class="Magento\Contact\Block\ContactForm"
                        name="contact_form" template="Magento_Contact::form.phtml" />
 
-                <block class="Magento\Framework\View\Element\Template" template="FalconMedia_Core::cms/contact-address.phtml">
+                <block class="Magento\Framework\View\Element\Template" template="FalconMedia_PrismicIOTypesSlices::modules/cms/contact-address.phtml">
                     <block class="Magento\Cms\Block\Block" name="block_address">
                         <arguments>
                             <argument name="block_id" xsi:type="string">contact_address</argument>

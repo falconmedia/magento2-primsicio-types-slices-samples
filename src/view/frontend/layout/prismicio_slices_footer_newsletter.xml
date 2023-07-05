@@ -3,7 +3,7 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <block name="footer_newsletter" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/newsletter/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/newsletter/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.title.0.text" as="heading"/>

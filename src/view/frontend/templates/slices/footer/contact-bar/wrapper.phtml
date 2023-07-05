@@ -14,7 +14,7 @@ $bg       = $block->getChildHtml('background_color');
 
 ?>
 
-<section class="contact-bar__footer col-xs-12 col-md-<?= $width; ?> bg-<?= ($bg ?: 'transparent'); ?>  mb-l p-4 mt-0">
+<section class="contact-bar__footer span-item-12 lg:span-item-<?= $width; ?> mb-4 bg-<?= ($bg ?: 'transparent'); ?>  p-4 mt-0">
     <h3 class="heading--third-level"><?= $block->getChildHtml('heading'); ?></h3>
     <div class="row">
         <?=/* @noEscape */ $block->getChildHtml('items') ?>

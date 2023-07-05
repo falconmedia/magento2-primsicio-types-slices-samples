@@ -3,7 +3,7 @@
     <body>
         <block name="teaser_images"
                class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::modules/teaser/wrapper.phtml"
+               template="Elgentos_PrismicIO::slices/teaser/wrapper.phtml"
         >
             <arguments>
                 <argument name="reference" xsi:type="string">primary</argument>

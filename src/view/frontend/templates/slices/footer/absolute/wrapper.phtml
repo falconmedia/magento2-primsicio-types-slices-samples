@@ -12,6 +12,6 @@ $width      = str_replace('/12', '', $block->getChildHtml('width'));
 $background = $escaper->escapeHtmlAttr($block->getChildHtml('background'));
 ?>
 
-<section class="footer__absolute-footer background-color--<?= $background; ?>  col-xs-12 col-md-<?= $width ?> column-gap-m mb-l">
+<section class="footer__absolute-footer bg-<?= $background; ?> span-item-12 md:span-item-<?= $width ?> gap mb-4">
     <?= /* @noEscape */ $block->getChildHtml('items'); ?>
 </section>

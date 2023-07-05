@@ -4,7 +4,7 @@
     <body>
 
         <block name="subcategories_list" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/subcategories-list/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/subcategories-list/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.list_title.0.text" as="heading"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Link" template="primary.top_category" as="link"/>
@@ -17,7 +17,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/subcategories-list/type.phtml">
+                       template="Elgentos_PrismicIO::slices/subcategories-list/type.phtml">
 
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="subcategory_link.type" as="type"/>
 

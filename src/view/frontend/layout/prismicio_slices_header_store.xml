@@ -4,7 +4,7 @@
     <body>
 
         <block name="header_store" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/header/store/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/header/store/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="primary.background_color" as="background"/>
@@ -15,7 +15,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/header/store/type.phtml">
+                       template="Elgentos_PrismicIO::slices/header/store/type.phtml">
 
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="store.type" as="type"/>
 
@@ -25,7 +25,7 @@
                         </arguments>
 
                         <block class="Elgentos\PrismicIO\Block\Template"
-                               template="Elgentos_PrismicIO::components/slice/header/store/item.phtml">
+                               template="Elgentos_PrismicIO::slices/header/store/item.phtml">
                             <arguments>
                                 <argument name="reference" xsi:type="string">data</argument>
                                 <argument name="viewModel" xsi:type="object">FalconMedia\Core\ViewModel\StoreInfo</argument>
@@ -48,7 +48,7 @@
                                 </arguments>
 
                                 <block class="Elgentos\PrismicIO\Block\Template"
-                                       template="Elgentos_PrismicIO::components/slice/header/showroom/item/timetable.phtml">
+                                       template="Elgentos_PrismicIO::slices/header/showroom/item/timetable.phtml">
                                     <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="day" as="day" />
                                     <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="open_close" as="open_close" />
                                 </block>

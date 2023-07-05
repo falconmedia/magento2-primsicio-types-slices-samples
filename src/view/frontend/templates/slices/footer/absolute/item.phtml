@@ -8,19 +8,19 @@
 use Elgentos\PrismicIO\Block\Template;
 use Magento\Framework\Escaper;
 
-$color      = $escaper->escapeHtmlAttr($block->getChildHtml('color'));
-$geLink     = $escaper->escapeUrl($block->getChildHtml('link'));
-$getLabel   = $escaper->escapeHtmlAttr($block->getChildHtml('label'));
+$color = $escaper->escapeHtmlAttr($block->getChildHtml('color'));
+$url   = $escaper->escapeUrl($block->getChildHtml('link'));
+$label = $escaper->escapeHtmlAttr($block->getChildHtml('label'));
 
 ?>
-<span class="color--<?= $color; ?> footer__absolute-footer__item">
-    <?php if($geLink): ?>
-        <a href="<?= $geLink; ?>" title="<?= $getLabel; ?>" class="color--<?= $color; ?>">
+<span class="footer__absolute-footer__item color-<?= $color; ?> text-<?= $color; ?>">
+    <?php if($url): ?>
+        <a href="<?= $url; ?>" title="<?= $label; ?>" class="text-<?= $color; ?>">
     <?php endif; ?>
 
-            <?= $getLabel; ?>
+            <?= $label; ?>
 
-    <?php if($geLink): ?>
+    <?php if($url): ?>
         </a>
     <?php endif; ?>
 </span>

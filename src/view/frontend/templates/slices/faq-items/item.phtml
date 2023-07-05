@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * @var $block Template
  * @var $escaper Escaper
@@ -14,7 +15,6 @@ $faqImage    = $block->getChildHtml('faq_image');
 $badgeText   = $block->getChildHtml('badge_text');
 $buttonText  = $block->getChildHtml('button_text');
 
-$video = $block->getChildHtml('faq_video');
 ?>
 
 <div class="faq-item-4">
@@ -27,10 +27,9 @@ $video = $block->getChildHtml('faq_video');
 
         <?php if ($faqImage): ?>
             <div class="faq-item__image">
-                <a href="<?= $faqUrl ?>" title="<?= $faqQuestion ?>" >
-                    <img class="image lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                         data-src="<?= $faqImage ?>" alt="<?= $faqQuestion ?>"
-                         loading="lazy" />
+                <a href="<?= $escaper->escapeUrl($faqUrl); ?>" title="<?= $faqQuestion ?>" >
+                    <img class="image lazyload"
+                         src="<?= $faqImage ?>" alt="<?= $faqQuestion ?>" />
                 </a>
             </div>
         <?php endif; ?>
@@ -41,7 +40,7 @@ $video = $block->getChildHtml('faq_video');
             </h3>
 
             <div class="faq-item__button">
-                <a href="<?= $faqUrl ?>"
+                <a href="<?= $escaper->escapeUrl($faqUrl); ?>"
                    class="button <?= ($video ? 'button--text' : '')?>">
                     <?php if ($video)  { ?>
                         <svg class="icon m-r--1" role="img">

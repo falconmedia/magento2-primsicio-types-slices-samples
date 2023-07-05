@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_contact_bar" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/contact-bar/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/contact-bar/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.background_color" as="background_color"/>
@@ -16,7 +16,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/footer/contact-bar/item.phtml">
+                       template="Elgentos_PrismicIO::slices/footer/contact-bar/item.phtml">
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw"  template="logo.url" as="image"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Text" template="title.0.text" as="title" />
                     <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link" as="link" />

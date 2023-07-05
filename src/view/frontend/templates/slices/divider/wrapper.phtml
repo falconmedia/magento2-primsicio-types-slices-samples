@@ -1,6 +1,15 @@
-<?php
-/** @var \Elgentos\PrismicIO\Block\Template $block */
-$margin = 'divider--' . $block->getChildHtml('margin-value');
+<?php declare(strict_types=1);
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$margin = $escaper->escapeHtml('divider--'.$block->getChildHtml('margin-value'));
+$twc    = $escaper->escapeHtml('my-'.$block->getChildHtml('margin-value'));
 
 ?>
-<div class="divider <?= $margin ?>"></div>
+<div class="divider <?= $margin; ?> <?= $twc; ?>"></div>

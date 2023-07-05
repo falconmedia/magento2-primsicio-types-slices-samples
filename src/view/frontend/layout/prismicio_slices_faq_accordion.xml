@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <block name="faq_accordion" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/faq-accordion/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/faq-accordion/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="primary.faq_title.0.text" as="heading"/>
 
@@ -13,7 +13,7 @@
 
 
                 <block class="Elgentos\PrismicIO\Block\Document" template="faq_item">
-                    <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::components/slice/faq-accordion/item.phtml">
+                    <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::slices/faq-accordion/item.phtml">
                         <arguments>
                             <argument name="reference" xsi:type="string">data</argument>
                         </arguments>

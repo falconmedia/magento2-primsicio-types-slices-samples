@@ -1,6 +1,6 @@
 <?php
 
-namespace FalconMedia\PrismicIO\ViewModel;
+namespace FalconMedia\PrismicIOTypesSlices\ViewModel;
 
 use Magento\Catalog\Block\Product\ImageFactory;
 use Magento\Catalog\Model\ProductRepository;

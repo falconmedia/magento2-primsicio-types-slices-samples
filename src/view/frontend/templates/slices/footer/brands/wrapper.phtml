@@ -20,10 +20,10 @@ $itemsMobile  = $escaper->escapeHtml($block->getChildHtml('mobile'));
 //highlight_string(print_r($dummy, true)); // show inline on page
 ?>
 
-<section class="footer__brands brands col-xs-12 col-md-<?= $width; ?> mb-l">
+<section class="footer__brands brands span-item-12 lg:span-item-<?= $width; ?> mb-4">
     <div class="container">
         <?php if ($heading) : ?>
-        <h3 class="font-size--l pb-1 text-center font-weight--600"><?= $heading ?></h3>
+        <h3 class="font-size-l pb-1 text-center font-weight-600"><?= $heading ?></h3>
         <?php endif; ?>
         <div class="sliderhtml-<?= $sliderId; ?>">
             <?=/* @noEscape */ $block->getChildHtml('items') ?>

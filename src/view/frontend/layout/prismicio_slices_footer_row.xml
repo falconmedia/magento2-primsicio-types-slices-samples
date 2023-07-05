@@ -17,7 +17,7 @@
 
     <body>
         <block name="footer_row" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/row/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/row/wrapper.phtml">
 
             <block as="items" class="Elgentos\PrismicIO\Block\Group">
                 <arguments>
@@ -25,7 +25,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/footer/row/type.phtml">
+                       template="Elgentos_PrismicIO::slices/footer/row/type.phtml">
 
                     <block template="item.type" as="type"
                            class="Elgentos\PrismicIO\Block\Dom\Raw" />
@@ -40,7 +40,7 @@
                         </arguments>
 
                         <block class="Elgentos\PrismicIO\Block\Template"
-                               template="Elgentos_PrismicIO::components/slice/footer/row/item.phtml">
+                               template="Elgentos_PrismicIO::slices/footer/row/item.phtml">
                             <block template="row_style" as="style"
                                    class="Elgentos\PrismicIO\Block\Dom\Raw" />
                             <block template="background_color" as="background_color"

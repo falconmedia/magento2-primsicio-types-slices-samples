@@ -16,7 +16,7 @@
     <update handle="prismicio_slices_general_card" />
     <update handle="prismicio_slices_teaser_images" />
     <update handle="prismicio_slices_stores" />
-    <update handle="prismicio_slices_openingstijden" />
+    <update handle="prismicio_slices_open_closing_times" />
 
     <body>
 
@@ -41,7 +41,7 @@
         </referenceContainer>
 
         <referenceContainer name="content">
-            <block name="block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::types/locatie/prismic.content.phtml">
+            <block name="block.content-data" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::types/store/prismic.content.phtml">
 
                 <block name="prismicio_page_title" class="Elgentos\PrismicIO\Block\Layout\PageTitle">
                     <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.meta_title" />
@@ -63,104 +63,69 @@
                 <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="plaats" as="city" />
                 <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="telefoon" as="tel" />
 
-                <block name="prismicio.locatie.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
+                <block name="prismicio.store.body" class="Elgentos\PrismicIO\Block\Slices" template="body">
                     <action method="append">
                         <argument name="element" xsi:type="string">hero_advanced</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.hero_advanced</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.hero_advanced</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">usps_horizontal</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.usps_horizontal</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.usps_horizontal</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">action_blocks</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.action_blocks</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.action_blocks</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">diy</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.diy</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.diy</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">teaser_images</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.teaser_images</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.teaser_images</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">divider</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.divider</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.divider</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">banner_with_caption</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.banner_with_caption</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.banner_with_caption</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">image</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.image</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.image</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">categories</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.categories</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.categories</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">product_collection</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.product_collection</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.product_collection</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">products</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.products</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.products</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">seo_text</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.seo_text</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.seo_text</argument>
                     </action>
                     <action method="append">
-                        <argument name="element" xsi:type="string">openingstijden</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.openingstijden</argument>
+                        <argument name="element" xsi:type="string">open_closing_times</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.open_closing_times</argument>
                     </action>
                     <action method="append">
                         <argument name="element" xsi:type="string">stores</argument>
-                        <argument name="alias" xsi:type="string">prismicio.locatie.body.stores</argument>
+                        <argument name="alias" xsi:type="string">prismicio.store.body.stores</argument>
                     </action>
 
-                    <block class="Elgentos\PrismicIO\Block\Container" name="prismicio.locatie.body.faq_items">
-                        <arguments>
-                            <argument name="htmlClass" xsi:type="string">container</argument>
-                            <argument name="htmlTag" xsi:type="string">div</argument>
-                        </arguments>
-
-                        <block class="Elgentos\PrismicIO\Block\Container">
-                            <arguments>
-                                <argument name="htmlClass" xsi:type="string">row faq-items</argument>
-                                <argument name="htmlTag" xsi:type="string">div</argument>
-                            </arguments>
-                            <action method="append">
-                                <argument name="element" xsi:type="string">faq_items</argument>
-                            </action>
-                        </block>
-                    </block>
                 </block>
             </block>
         </referenceContainer>
 
-
-        <referenceBlock name="breadcrumbs">
-            <action method="addCrumb">
-                <argument name="crumbName" xsi:type="string">Home</argument>
-                <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string" translate="true">Home</item>
-                    <item name="label" xsi:type="string" translate="true">Home</item>
-                </argument>
-            </action>
-            <action method="addCrumb">
-                <argument name="crumbName" xsi:type="string">Merken</argument>
-                <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string" translate="true">Zorgwinkel</item>
-                    <item name="label" xsi:type="string" translate="true">Zorgwinkel</item>
-                </argument>
-            </action>
-        </referenceBlock>
-
         <move element="breadcrumbs" destination="block.hero-data" before="-" />
-<!--        <move element="div.sidebar.main" destination="columns" before="main"/>-->
         <move element="div.seo.main" destination="head.additional" before="main"/>
 
 

@@ -4,7 +4,7 @@
     <body>
 
         <block name="footer_menu" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/footer/menu/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/footer/menu/wrapper.phtml">
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.column_width" as="width"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.background_color1" as="background_color"/>
 
@@ -14,7 +14,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/footer/menu/type.phtml">
+                       template="Elgentos_PrismicIO::slices/footer/menu/type.phtml">
 
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="footer_menu_type.type" as="type"/>
 
@@ -24,7 +24,7 @@
                         </arguments>
 
                         <block class="Elgentos\PrismicIO\Block\Template"
-                               template="Elgentos_PrismicIO::components/slice/footer/menu/menu.phtml">
+                               template="Elgentos_PrismicIO::slices/footer/menu/menu.phtml">
 
                             <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="menu_title.0.text" as="heading"/>
 
@@ -39,7 +39,7 @@
                                 </arguments>
 
                                 <block class="Elgentos\PrismicIO\Block\Template"
-                                       template="Elgentos_PrismicIO::components/slice/footer/menu/items/item.phtml">
+                                       template="Elgentos_PrismicIO::slices/footer/menu/items/item.phtml">
                                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="label" as="title" />
                                     <block class="Elgentos\PrismicIO\Block\Dom\Link" template="link" as="link" />
                                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="link.slug" as="slug" />

@@ -2,14 +2,14 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <block name="open_closing_times" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::slices/open_closing_times/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/open-closing-times/wrapper.phtml">
 
             <block as="items" class="Elgentos\PrismicIO\Block\Group">
                 <arguments>
                     <argument name="reference" xsi:type="string">items</argument>
                 </arguments>
 
-                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::slices/open_closing_times/single.phtml">
+                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::slices/open-closing-times/single.phtml">
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="day" as="day"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="status" as="status"/>
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="open_hour" as="open_hour"/>

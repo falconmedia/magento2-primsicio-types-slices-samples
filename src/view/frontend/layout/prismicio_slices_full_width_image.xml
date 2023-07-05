@@ -3,7 +3,7 @@
     <body>
         <block name="full_width_image"
                class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/full-width-image/wrapper.phtml"
+               template="Elgentos_PrismicIO::slices/full-width-image/wrapper.phtml"
         >
             <block class="Elgentos\PrismicIO\Block\Dom\Link" template="primary.full_width_image" name="link" />
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="category_image.url" as="image"/>

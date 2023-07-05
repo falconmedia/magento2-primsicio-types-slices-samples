@@ -12,7 +12,7 @@
         <referenceContainer name="columns" htmlClass="columns containermt-1 width-full" />
 
         <referenceContainer name="header.breadcrumbs.title">
-            <block name="falcon.block.hero-data" class="Elgentos\PrismicIO\Block\Template"
+            <block name="block.hero-data" class="Elgentos\PrismicIO\Block\Template"
                    template="Elgentos_PrismicIO::modules/prismic.header.phtml">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
@@ -21,7 +21,7 @@
             </block>
         </referenceContainer>
         <referenceContainer name="div.seo.main">
-            <block name="falcon.block.seo-data" class="Elgentos\PrismicIO\Block\Template"
+            <block name="block.seo-data" class="Elgentos\PrismicIO\Block\Template"
                    template="Elgentos_PrismicIO::modules/prismic.seo.phtml">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>
@@ -36,7 +36,7 @@
             </block>
         </referenceContainer>
         <referenceContainer name="content">
-            <block name="falcon.block.content-data" class="Elgentos\PrismicIO\Block\Template"
+            <block name="block.content-data" class="Elgentos\PrismicIO\Block\Template"
                    template="Elgentos_PrismicIO::components/type/faq-items/prismic.content.phtml">
                 <arguments>
                     <argument name="reference" xsi:type="string">data</argument>

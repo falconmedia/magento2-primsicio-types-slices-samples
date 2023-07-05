@@ -1,34 +1,63 @@
-<?php
-/** @var \Elgentos\PrismicIO\Block\Template $block */
-/** @var \FalconMedia\Core\ViewModel\StoreInfo $storeInfo */
-$storeInfo = $block->getData('viewModel');
-$form = $block->getChildHtml('form');
-$address = $block->getChildHtml('address');
-$image = $block->getChildHtml('image_url');
+<?php declare(strict_types=1);
+
+/**
+ * @var $storeInfo StoreInfo
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+
+use FalconMedia\Core\ViewModel\StoreInfo;
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+    $storeInfo   = $block->getData('viewModel');
+    $form        = $block->getChildHtml('form');
+    $address     = $block->getChildHtml('address');
+    $image       = $escaper->escapeUrl($block->getChildHtml('image_url'));
+    $storeName   = $escaper->escapeHtml($storeInfo->getStoreName());
+    $storeStreet = $escaper->escapeHtml($storeInfo->getStoreAddress());
+    $storeZip    = $escaper->escapeHtml($storeInfo->getStorePostcode());
+    $storeCity   = $escaper->escapeHtml($storeInfo->getStoreCity());
+    $storeCountry= $escaper->escapeHtml($storeInfo->getStoreCountry());
+    $storePhone  = $escaper->escapeHtml($storeInfo->getStorePhone());
+    $storeEmail  = $escaper->escapeHtml($storeInfo->getStoreMail());
+
+    $countryCode = '+31';
+    $reg         = '/^(0|\\'.$cc.')(.*)/m';
+    $subst       = '<a href="tel:'.$cc.'> $2>$2</a>';
+    $phoneUrl    = $escaper->escapeHtml(preg_replace($reg, $subst, $storePhone));
+
 ?>
+
 <?php if ($image) { ?>
     <picture class="contact-block__image image">
-        <img src="<?= $block->getChildHtml('image_url') ?>"/>
+        <img src="<?= $image; ?>"
+             class="lazyload" />
     </picture>
 <?php } ?>
 <?php if ($form) { ?>
     <div class="contact-block">
         <div class="contact-block__form">
-            <?= $block->getChildHtml('contact_form'); ?>
+            <?=/* @noEscape */ $block->getChildHtml('contact_form'); ?>
         </div>
     </div>
 <?php } ?>
 <?php if ($address) { ?>
-    <div class="contact-block">
-        <div class="contact-block__address">
-            <h2><?= $storeInfo->getStoreName(); ?></h2>
-            <address>
-                <?= $storeInfo->getStoreAddress(); ?><br/>
-                <?= $storeInfo->getStorePostcode(); ?>  <?= $storeInfo->getStoreCity(); ?><br/>
-                <?= $storeInfo->getStoreCountry(); ?>
-            </address>
-            <span class="contact-phone"> <a href="tel:<?= $storeInfo->getStorePhone(); ?>"><?= $storeInfo->getStorePhone(); ?></a> </span><br/>
-            <span class="contact-mail"> <a href="mailto:<?= $storeInfo->getStoreMail(); ?>"><?= $storeInfo->getStoreMail(); ?></a></span>
+    <div class="contact-block flex flex-col">
+        <h2><?= $escaper->escapeHtml($storeInfo->getStoreName()); ?></h2>
+        <address class="contact-block__address flex flex-col">
+            <span><?= $storeStreet; ?></span>
+            <span><?= $storeZip; ?>  <?= $storeCity; ?></span>
+            <span><?= $storeCountry; ?></span>
+        </address>
+        <div class="contact-block__icons flex flex-col my-4">
+            <span class="contact-block_phone">
+                <a href="tel:<?= $phoneUrl; ?>">
+                <?= $storePhone; ?></a>
+            </span>
+            <span class="contact-block_mail">
+                <a href="mailto:<?= $storeEmail; ?>"><?= $storeEmail; ?></a>
+            </span>
         </div>
     </div>
 <?php } ?>

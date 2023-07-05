@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * @var $block Template
  * @var $escaper Escaper
@@ -11,7 +12,7 @@ $context     = $block->getContext();
 $headline    = $escaper->escapeHtml($block->getChildHtml('headline'));
 $title       = $escaper->escapeHtml($block->getChildHtml('title'));
 $description = $block->getChildHtml('description');
-$image       = $block->getChildHtml('image');
+$image       = $escaper->escapeUrl($block->getChildHtml('image'));
 ?>
 <div class="faq-block container">
     <div class="faq-block__accordion  js-accordion">
@@ -25,7 +26,7 @@ $image       = $block->getChildHtml('image');
                         <h2 class="faq-block__title"><?= $title; ?></h2>
                     <?php endif; ?>
                     <?php if ($image) : ?>
-                        <img class="faq-block__image" src="<?= $escaper->escapeUrl($image); ?>" <?php if ($title) : ?>alt="<?= $escaper->escapeHtml($title); ?>"<?php endif; ?> />
+                        <img class="faq-block__image" src="<?= $image; ?>" alt="<?= ($title ?: ''); ?>" />
                     <?php endif; ?>
                     <?php if ($description) : ?>
                         <p class="faq-block__description"><?=/* @noEscape */ $description; ?></p>

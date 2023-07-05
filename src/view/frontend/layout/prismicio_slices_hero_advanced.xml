@@ -4,7 +4,7 @@
     <body>
 
         <block name="hero_advanced" class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/hero-advanced/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/hero-advanced/wrapper.phtml">
 
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.background_color" as="background"/>
             <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="primary.row_style" as="full_width"/>
@@ -21,7 +21,7 @@
                 </arguments>
 
                 <block class="Elgentos\PrismicIO\Block\Template"
-                       template="Elgentos_PrismicIO::components/slice/hero-advanced/type.phtml">
+                       template="Elgentos_PrismicIO::slices/hero-advanced/type.phtml">
 
                     <block class="Elgentos\PrismicIO\Block\Dom\Raw" template="hero_item.type" as="type"/>
 
@@ -30,7 +30,7 @@
                             <argument name="reference" xsi:type="string">hero_item</argument>
                         </arguments>
                         <block class="Elgentos\PrismicIO\Block\Template"
-                                   template="Elgentos_PrismicIO::components/slice/hero-advanced/hero.phtml">
+                                   template="Elgentos_PrismicIO::slices/hero-advanced/hero.phtml">
                             <arguments>
                                 <argument name="reference" xsi:type="string">data</argument>
                             </arguments>
@@ -50,7 +50,7 @@
                         </arguments>
 
                         <block class="Elgentos\PrismicIO\Block\Template"
-                               template="Elgentos_PrismicIO::components/slice/hero-advanced/hero-3cols.phtml">
+                               template="Elgentos_PrismicIO::slices/hero-advanced/hero-3cols.phtml">
                             <arguments>
                                 <argument name="reference" xsi:type="string">data</argument>
                             </arguments>
@@ -75,7 +75,7 @@
                         </arguments>
 
                         <block class="Elgentos\PrismicIO\Block\Template"
-                               template="Elgentos_PrismicIO::components/slice/hero-advanced/hero-2cols.phtml">
+                               template="Elgentos_PrismicIO::slices/hero-advanced/hero-2cols.phtml">
                             <arguments>
                                 <argument name="reference" xsi:type="string">data</argument>
                             </arguments>
@@ -97,7 +97,7 @@
                         </arguments>
 
                         <block class="Elgentos\PrismicIO\Block\Template"
-                               template="Elgentos_PrismicIO::components/slice/hero-advanced/hero-13/item.phtml">
+                               template="Elgentos_PrismicIO::slices/hero-advanced/hero-13/item.phtml">
                             <arguments>
                                 <argument name="reference" xsi:type="string">data</argument>
                             </arguments>

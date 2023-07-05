@@ -1,10 +1,14 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
- * @var $block Elgentos\PrismicIO\Block\Template
+ * @var $block Template
+ * @var $escaper Escaper
  */
 
-$context = $block->getContext();
-$heading = $block->getChildHtml('heading');
+use Elgentos\PrismicIO\Block\Template;
+use Magento\Framework\Escaper;
+
+$heading = $escaper->escapeHtml($block->getChildHtml('heading'));
 ?>
 <div class="container faq-block">
     <div class="row">
@@ -19,7 +23,7 @@ $heading = $block->getChildHtml('heading');
                             class="dropdown-list__list block-nav__list"
                             data-mage-init='{"dropdownList": {}}'
                         >
-                            <?= $block->getChildHtml('items') ?>
+                            <?=/* @noEscape */ $block->getChildHtml('items') ?>
                         </ul>
                     </div>
                 </div>

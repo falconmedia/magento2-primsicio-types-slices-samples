@@ -5,7 +5,7 @@
 
         <block name="header_logo"
                class="Elgentos\PrismicIO\Block\Template"
-               template="Elgentos_PrismicIO::components/slice/header/logo/wrapper.phtml">
+               template="Elgentos_PrismicIO::slices/header/logo/wrapper.phtml">
             <arguments>
                 <argument name="reference" xsi:type="string">primary</argument>
             </arguments>
